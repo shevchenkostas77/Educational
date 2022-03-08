@@ -37,10 +37,10 @@ public class TypeErasure {
     public void abc(Info<String> info) {
         String s = info.getInfo();
     }
-
-    public void abc(Info<Integer> info) {
-        Integer i = info.getInfo();
-    }
+//
+//    public void abc(Info<Integer> info) {
+//        Integer i = info.getInfo();
+//    }
     /*
         копилятор не позволяет нам это сделать Overloading, т.к. JVM видит по следующему
         public void abc(Info info)
@@ -48,17 +48,17 @@ public class TypeErasure {
     */
 
     //В ниже написанном коде компилятор выдаст ошибку
-    class Parant {
-        public void abc(Info<String> info) {
-            String s = info.getInfo();
-        }
-    }
+//    class Parant {
+//        public void abc(Info<String> info) {
+//            String s = info.getInfo();
+//        }
+//    }
 
-    class Child extends Parant {
-        public void abc(Info<Integer> info) {
-            Integer s = info.getInfo();
-        }
-    }
+//    class Child extends Parant {
+//        public void abc(Info<Integer> info) {
+//            Integer s = info.getInfo();
+//        }
+//    }
     /*
         1. При переопределении обычного метода 'abc (A a)' в параметре можем использовать только тип А.
         Если использовать его дочерний класс, или какой-либо другой класс, то получаем overloaded method.
