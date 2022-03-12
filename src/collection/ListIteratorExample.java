@@ -40,7 +40,7 @@ public class ListIteratorExample {
 }
 
 /*
-ВАЖНЫЙ И ТОНКИЙ НЬАНС
+ВАЖНЫЙ И ТОНКИЙ НЮАНС
 
 
 Character c1 = 'm';
