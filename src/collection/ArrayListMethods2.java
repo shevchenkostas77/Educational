@@ -60,4 +60,3 @@ public class ArrayListMethods2 {
         System.out.println("contains = " + list1.contains("Kolya"));
     }
 }
-

@@ -31,4 +31,3 @@ public class IteratorExample {
         System.out.println(list); // Выведет на экран элементы list [Ivan, Georg, Mariya, Kolya, Olga]
     }
 }
-
