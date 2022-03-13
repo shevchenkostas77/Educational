@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/blackBeltJava.iml" filepath="$PROJECT_DIR$/blackBeltJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LearningJava.iml" filepath="$PROJECT_DIR$/LearningJava.iml" />
     </modules>
   </component>
 </project>
