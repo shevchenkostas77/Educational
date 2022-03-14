@@ -38,6 +38,5 @@ public class VectorExample {
 
 //        Выводим на экран элемент по индексу
         System.out.println(vector.get(1));
-
     }
 }
