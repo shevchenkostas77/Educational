@@ -18,6 +18,8 @@ HashMap не запоминает порядок добавления элеме
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.Collection;
 
 public class HashMapExample {
     public static void main(String[] args) {
@@ -55,10 +57,13 @@ public class HashMapExample {
         System.out.println("Is the key \"2022\" in the collection? " + map1.containsKey(2022));
 
 //        Метод keySet() возвращает множество ключей, которые есть в коллекции
-        System.out.println("All keys in the collection " + map1.keySet());
+        Set<Integer> keys = map1.keySet();
+        System.out.println("All keys in the collection " + keys);
 
-//        Метод values() возвращает множестов значений, которые есть в коллекции
-        System.out.println("All values in the collection " + map1.values());
+//        Метод values() возвращает все значения, которые есть в коллекции
+        Collection <String> values = map1.values();
+        Set<String> values2 = (Set<String>) map1.values();
+        System.out.println("All values in the collection " + values2);
 
 //        Ключи и значения могут быть абсолютно разных типов и даже могут совпадать
         Map<String, String> map2 = new HashMap<>();
