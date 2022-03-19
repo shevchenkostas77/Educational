@@ -79,15 +79,27 @@ public class HashCodeExample {
     }
 }
 
-class Student {
-    String name;
-    String surname;
-    int course;
+final class Student implements Comparable<Student> {
+    final private String name;
+    final private String surname;
+    final private int course;
 
     public Student(String name, String surname, int course) {
         this.name = name;
         this.surname = surname;
         this.course = course;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getCourse() {
+        return course;
     }
 
     @Override
@@ -107,6 +119,18 @@ class Student {
         return course == student.course &&
                 name == student.name &&
                 surname == student.surname;
+    }
+
+    @Override
+    public int compareTo(Student anotherStudent) {
+        int result = this.name.compareTo(anotherStudent.name);
+        if (result == 0) {
+            result = this.surname.compareTo(anotherStudent.surname);
+        }
+        if (result == 0) {
+            result = this.course - anotherStudent.course;
+        }
+        return result;
     }
 
     /*

@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collection/map_interface/HashMapInDetailPart2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection/map_interface/HashMapInDetailPart2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collection/map_interface/HashCodeExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection/map_interface/HashCodeExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comparation/ReadMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparation/ReadMe.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.HashCodeExample">
+  <component name="RunManager" selected="Application.TreeMapExample">
     <configuration name="HashCodeExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="collection.map_interface.HashCodeExample" />
       <module name="blackBeltJava" />
@@ -90,6 +91,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TreeMapExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.map_interface.TreeMapExample" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.map_interface.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VectorExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="collection.VectorExample" />
       <module name="blackBeltJava" />
@@ -105,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TreeMapExample" />
         <item itemvalue="Application.HashCodeExample" />
         <item itemvalue="Application.HashMapExample" />
         <item itemvalue="Application.StackExample" />
