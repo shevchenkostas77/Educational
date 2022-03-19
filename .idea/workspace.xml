@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/collection/map_interface/HashMapInDetailPart1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/collection/map_interface/HashMapInDetailPart2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/collection/map_interface/TreeMapExample.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/collection/map_interface/TreeMapExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/collection/map_interface/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/collection/map_interface/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/comparation/ReadMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/comparation/ReadMe.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/collection/map_interface/HashCodeExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection/map_interface/HashCodeExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comparation/ReadMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparation/ReadMe.txt" afterDir="false" />
     </list>
