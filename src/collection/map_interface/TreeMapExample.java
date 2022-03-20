@@ -22,6 +22,7 @@ public class TreeMapExample {
         Student st5 = new Student("Sergey", "Petrov", 1);
         Student st6 = new Student("Mariya", "Petrova", 5);
         Student st7 = new Student("Ivan", "Ivanov", 4);
+
         treeMap.put(8.1, st7);
         treeMap.put(5.8, st1);
         treeMap.put(9.2, st2);
