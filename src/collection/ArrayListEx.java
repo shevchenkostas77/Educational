@@ -1,8 +1,5 @@
 package collection;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /*
     ArrayList очень часто использованная коллекция.
     ArrayList еще называют resizeable массив, массив который может изменять свой размер.
@@ -22,6 +19,9 @@ import java.util.List;
     ArrayList<DataType> name = new ArrayList<>(30) <- в скобках указан размер initialCapacity
     Тем самым java не будет тратить время на создание последовательного необходимого размера.
  */
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ArrayListEx {
     public static void main(String[] args) {
