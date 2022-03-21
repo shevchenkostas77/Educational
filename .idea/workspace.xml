@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/collection/ArrayListEx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection/ArrayListEx.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.HashSetExample">
-    <configuration name="HashCodeExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.map_interface.HashCodeExample" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="collection.map_interface.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TreeSetExample">
     <configuration name="HashSetExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="collection.set_interface.HashSetExample" />
       <module name="blackBeltJava" />
@@ -117,13 +102,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TreeSetExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.set_interface.TreeSetExample" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="collection.set_interface.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TreeSetExample" />
         <item itemvalue="Application.HashSetExample" />
         <item itemvalue="Application.HashtableExample" />
         <item itemvalue="Application.LinkedHashMapExample" />
         <item itemvalue="Application.TreeMapExample" />
-        <item itemvalue="Application.HashCodeExample" />
       </list>
     </recent_temporary>
   </component>
