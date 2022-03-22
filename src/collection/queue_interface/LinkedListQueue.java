@@ -3,18 +3,18 @@ package collection.queue_interface;
 /*
 Queue.
 
-У интерфейса Queue есть наследник интерфейс Deque.
-У Deque есть два класса, которые его имплементируют:
-1.	LinkedList (LinkedList имплементирует не только интерфейс List), not synchronized;
-2.	ArrayDeque, not synchronized;
+У интерфейса Queue есть наследник интерфейс Deque. У Deque есть два класса,
+которые его имплементируют:
+    1.LinkedList (LinkedList имплементирует не только интерфейс List), not synchronized;
+    2.ArrayDeque, not synchronized;
 Так же от Queue происходит интерфейс AbstractQueue, который имплементируется
 классом PriorityQueue, not synchronized.
 
-	         Queue
-	    /		      \
-      Deque		       AbstractQueue
-   /	    \			        |
-LinkedList	ArrayDeque	    PriorityQueue
+                                 Queue
+                            /		      \
+                      Deque		           AbstractQueue
+                    /	    \			         |
+          LinkedList	     ArrayDeque	     PriorityQueue
 
 Queue (переводится как "очередь") – это базовый интерфейс, который хранит
 последовательность элементов для какой-либо обработки. Используется для того,
@@ -39,7 +39,7 @@ public class LinkedListQueue {
         queue.add("Anton");
         queue.add("Bogdan");
         System.out.println("Queue = " + queue);
-//        Выаод:
+//        Вывод:
 //        Queue = [Roman, Ivan, Stepan, Anton, Bogdan]
 //        Размер очереди неограничен
         /*
@@ -50,7 +50,6 @@ public class LinkedListQueue {
         Если добавляется элемент в коллекцию с помощью метода offer() в ограниченную и уже
         заполненную очередь, то исключение, в таком случае, не выбросится, но элемент
         добавлен не будет.
-
         */
 
 //        Удаление происходит при помощи метода remove() (возвращает удаленный элемент).
@@ -63,14 +62,14 @@ public class LinkedListQueue {
         Element that was removed = Roman
         Queue after = [Ivan, Stepan, Anton, Bogdan]
 
-        Удалился первый элемент, который стоит в очереди (FIFO)
+        Удалился первый элемент, который стоит в очереди (FIFO).
         Если вызвать метод больше раз, чем количество элементов в коллекции, то
         выбросится исключение NoSuchElementException.
         Но есть подобный метод - poll(), который удаляет элементы, но в случае, если элементов
         уже больше нет в коллекции (очередь пуста), а метод вызван, то исключение уже
-        не выбросится, а вернет null.
+        не выбросится. Метод вернет null.
 
-        В параметре метода remove можно указать, какой конкретно элемент необходимо удалить
+        В параметре метода remove() можно указать, какой конкретно элемент необходимо удалить
         из очереди (местоположение в очереди его может быть любым).
         Но если часто использовать удаление из середины, смысла использовать Queue нет.
         Queue - это удаление из начала очереди, а добавление в конец.
