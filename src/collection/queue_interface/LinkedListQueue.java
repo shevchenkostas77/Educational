@@ -14,7 +14,7 @@ Queue.
                             /		      \
                       Deque		           AbstractQueue
                     /	    \			         |
-          LinkedList	     ArrayDeque	     PriorityQueue
+          LinkedList	     ArrayDeque	        PriorityQueue
 
 Queue (переводится как "очередь") – это базовый интерфейс, который хранит
 последовательность элементов для какой-либо обработки. Используется для того,
