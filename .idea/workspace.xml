@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/collection/queue_interface/LinkedListQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/collection/queue_interface/LinkedListQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/collection/StackExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection/StackExample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +50,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.PriorityQueueExample">
-    <configuration name="HashSetExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.set_interface.HashSetExample" />
+  <component name="RunManager" selected="Application.ArrayDequeExample">
+    <configuration name="ArrayDequeExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="collection.queue_interface.ArrayDequeExample" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="collection.set_interface.*" />
+          <option name="PATTERN" value="collection.queue_interface.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ArrayDequeExample" />
         <item itemvalue="Application.PriorityQueueExample" />
         <item itemvalue="Application.LinkedListQueue" />
         <item itemvalue="Application.LinkedHashSetExample" />
         <item itemvalue="Application.TreeSetExample" />
-        <item itemvalue="Application.HashSetExample" />
       </list>
     </recent_temporary>
   </component>
@@ -147,5 +147,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
