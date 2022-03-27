@@ -49,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.InnerClass">
+  <component name="RunManager" selected="Application.LocalInnerClass2">
     <configuration name="ArrayDequeExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="collection.queue_interface.ArrayDequeExample" />
       <module name="blackBeltJava" />
@@ -76,12 +76,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LinkedListQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.queue_interface.LinkedListQueue" />
+    <configuration name="LocalInnerClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nested_classes.LocalInnerClass" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="collection.queue_interface.*" />
+          <option name="PATTERN" value="nested_classes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,12 +89,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PriorityQueueExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.queue_interface.PriorityQueueExample" />
+    <configuration name="LocalInnerClass2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nested_classes.LocalInnerClass2" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="collection.queue_interface.*" />
+          <option name="PATTERN" value="nested_classes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LocalInnerClass2" />
+        <item itemvalue="Application.LocalInnerClass" />
         <item itemvalue="Application.InnerClass" />
         <item itemvalue="Application.StaticNestedClass" />
         <item itemvalue="Application.ArrayDequeExample" />
-        <item itemvalue="Application.PriorityQueueExample" />
-        <item itemvalue="Application.LinkedListQueue" />
       </list>
     </recent_temporary>
   </component>
