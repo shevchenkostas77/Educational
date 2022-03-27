@@ -27,6 +27,7 @@ public class LocalInnerClass {
         // Ostatok = 1
         // getPrivateElOuterClass = 10
         // getFinalValueMethod = 10
+        // Final static value of local inner class = 5
 
         System.out.println();
 
@@ -73,9 +74,10 @@ class Math {  // внешний класс для local inner класса Divis
         */
         effectivelyFinalValue = 50;
 
-        class Division { // По аналогии с локальной переменной модификатор "static" здесь запрещен
+        class Division {
             private int delimoe;
             private int delitel;
+            final static int finalStaticValue = 5;
 
             public int getDelimoe() {
                 return delimoe;
@@ -128,7 +130,10 @@ class Math {  // внешний класс для local inner класса Divis
                 */
                 // effectivelyFinalValue = 50;
                 // System.out.println(effectivelyFinalValue);
+            }
 
+            public void finalStaticValueMethod() {
+                System.out.println("Final static value of local inner class = " + finalStaticValue);
             }
         }
 
@@ -141,6 +146,7 @@ class Math {  // внешний класс для local inner класса Divis
         System.out.println("Ostatok = " + division.getOstatok());
         division.getPrivateElOuterClass();
         division.getFinalValueMethod();
+        division.finalStaticValueMethod();
     }
 }
 
