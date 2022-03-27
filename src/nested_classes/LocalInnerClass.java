@@ -122,11 +122,11 @@ class Math {  // внешний класс для local inner класса Divis
 
             public void getEffectivelyFinalValueMethod() {
                 /*
-                На 58 строке кода поменяли значение effectively final переменной блока,
+                На 75 строке кода поменяли значение effectively final переменной блока,
                 поэтому использовать ее в local inner классе не получится. Но если значение
-                не было бы изменено на 58 строке кода, использовать данную переменную было бы
+                не было бы изменено на 75 строке кода, использовать данную переменную было бы
                 возможно. То же самое будет, если изменить переменную effectivelyFinalValue в самом
-                local inner классе, как на 109 строке кода.
+                local inner классе, как на 131 строке кода.
                 */
                 // effectivelyFinalValue = 50;
                 // System.out.println(effectivelyFinalValue);
