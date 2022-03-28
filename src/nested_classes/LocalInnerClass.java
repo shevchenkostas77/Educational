@@ -175,4 +175,3 @@ class Math2 {
         System.out.println("Ostatok = " + division.getOstatok());
     }
 }
-

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="" />
+    <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nested_classes/LocalInnerClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/nested_classes/LocalInnerClass.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,13 +50,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.LocalInnerClass">
-    <configuration name="ArrayDequeExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="collection.queue_interface.ArrayDequeExample" />
+  <component name="RunManager" selected="Application.AnonymousClass">
+    <configuration name="AnonymousClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nested_classes.AnonymousClass" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="collection.queue_interface.*" />
+          <option name="PATTERN" value="nested_classes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AnonymousClass" />
         <item itemvalue="Application.LocalInnerClass" />
         <item itemvalue="Application.LocalInnerClass2" />
         <item itemvalue="Application.InnerClass" />
         <item itemvalue="Application.StaticNestedClass" />
-        <item itemvalue="Application.ArrayDequeExample" />
       </list>
     </recent_temporary>
   </component>
