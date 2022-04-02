@@ -289,6 +289,7 @@ class Student {
         return "Student {" +
                 "name = '" + name + '\'' +
                 ", sex = " + sex +
+                ", age = " + age +
                 ", course = " + course +
                 ", averageGrade = " + averageGrade +
                 '}';

@@ -1,14 +1,12 @@
 package lambda;
 
-import java.util.function.Supplier;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
 
 /*
 Supplier (с англ. "поставщик"). Находится в пакете java.util.function.
-Supplier<T> это простой functional interface, который представляет собой оператор,
-предоставляющий значение для каждого вызова.
-Supplier имеет только один метод T get() и не имеет метода по умолчанию.
+Supplier имеет только один метод T get() и не имеет методов по умолчанию.
 Метод T get() не принимает никакой параметр, а возвращает объект типа "Т" (generics,
 это может быть объект того типа, который необходим для работы).
 
@@ -26,7 +24,7 @@ public class MySupplier {
 		Ниже создан метод createThreeCars, который создает три объекта Car,
 		помещает эти три объекта в коллекцию ArrayList и возвращает этот ArrayList.
 		При вызове метода createThreeCars в параметре этого метода в lambda выражении
-		указано какие три объекты Car будут созданы.
+		указано какие три объекта Car будут созданы.
 		*/
 
     public static ArrayList<Car> createThreeCars(Supplier<Car> carSupplier) {
@@ -42,18 +40,20 @@ public class MySupplier {
     }
 
     public static void main(String[] args) {
-        ArrayList<Car> ourCars = createThreeCars( () ->
-        {return new Car("Nissan Tiida", "Silver Metalic", 1.6);} );
+        ArrayList<Car> ourCars = createThreeCars(() ->
+        {
+            return new Car("Nissan Tiida", "Silver Metallic", 1.6);
+        });
         System.out.println("Our cars: " + ourCars);
         //  Вывод:
-        //Our cars: [Car = {model = 'Nissan Tiida', color = 'Silver Metalic', engine = 1.6},
-        //          Car = {model = 'Nissan Tiida', color = 'Silver Metalic', engine = 1.6},
-        //          Car = {model = 'Nissan Tiida', color = 'Silver Metalic', engine = 1.6}]
+        // Our cars: [Car = {model = 'Nissan Tiida', color = 'Silver Metallic', engine = 1.6},
+        //        Car = {model = 'Nissan Tiida', color = 'Silver Metallic', engine = 1.6},
+        //        Car = {model = 'Nissan Tiida', color = 'Silver Metallic', engine = 1.6}]
 
 		  /*
 		  Обычно же интерфейс Supplier не работает в одиночку, его используют
-		  вместе с интерфейсом Consumer. Эти интерфейсы не улучшают эффективность
-		  кода, а используются лишь для его сокращения.
+		  вместе с интерфейсом Consumer. Эти интерфейсы (Supplier и Consumer) не улучшают
+		  эффективность кода, а используются лишь для его сокращения.
 		  */
     }
 }
