@@ -1,7 +1,6 @@
 package lambda;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Predicate;
 
 /*
@@ -19,7 +18,7 @@ Predicate.
 @FunctionalInterface // аннотацией помечено, что он функциональный интерфейс;
     public interface Predicate<T> {
         boolean test(T t); // в нем один абстрактный метод (другие методы тоже есть,
-                           // но они не абстрактны;
+                           // но они не абстрактны);
         }
 
     Абстрактный метод называется test. Он принимает в параметр тип "Т", т.е.
