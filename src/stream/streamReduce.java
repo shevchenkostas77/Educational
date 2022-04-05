@@ -26,7 +26,7 @@ public class streamReduce {
         list.add(4);
         list.add(3);
 
-//        Вариант №1 использования метода reduce
+//        Вариант №1 использования метода reduce.
         Optional<Integer> result = list.stream().reduce((accumulator, element) ->
                 accumulator * element);
         System.out.println(result);
@@ -48,7 +48,7 @@ public class streamReduce {
         accumulator-y и переменная accumulator становится 40 (он будет собирать все эти значения, в данном случае это
         произведения). Следующий элемент потока (2) назначается переменной element и снова происходит умножение:
         40 умножается на 2 = 80. Element присваивается следующее значение 4, 80 * 4 = 320. Значение 320 присевается
-        accumulator. Следующее значение потока это 3 присваивается element, происходит та же операция по умножению
+        accumulator. Следующее значение потока это 3 и присваивается element, происходит та же операция по умножению
         320 * 3 = 960. На этом метод reduce заканчивает свою работу и возвращает значение 960.
         accumulator = 5,  40,  80,  320,  960.
         element =     8,   2,   4,    3.
@@ -70,6 +70,11 @@ public class streamReduce {
 //        System.out.println(listHasNoElementsResult);
 //        Вывод:
 //        Exception in thread "main" java.util.NoSuchElementException: No value present
+        Optional<Integer> listHasNoElementsResult2 = listHasNoElements.stream().reduce((accumulator, element) ->
+                accumulator * element);
+        System.out.println(listHasNoElementsResult2);
+//        Вывод:
+//        Optional.empty
         /*
         Если попытаться вывести результат работы стрима вызванного на коллекции listHasNoElement, которая
         не содержит никаких элементов, то выбросится исключение NoSuchElementException.
@@ -77,10 +82,10 @@ public class streamReduce {
         метод get, а присвоить результат выполнения работы метода reduce переменной типа Optional и
         воспользоваться методом isPresent (присутствует значение?):
          */
-        Optional<Integer> listHasNoElementsResult2 = listHasNoElements.stream().reduce((accumulator, element) ->
+        Optional<Integer> listHasNoElementsResult3 = listHasNoElements.stream().reduce((accumulator, element) ->
                 accumulator * element);
-        if (listHasNoElementsResult2.isPresent()) {
-            System.out.println(listHasNoElementsResult2.get());
+        if (listHasNoElementsResult3.isPresent()) {
+            System.out.println(listHasNoElementsResult3.get());
         } else {
             System.out.println("No value present");
         }
@@ -92,6 +97,57 @@ public class streamReduce {
         reduce возвращает not-null значение, то при помощи метода get получается это значение и выводится
         на экран.
          */
-    }
 
+//      Вариант №2 использования метода reduce.
+        /*
+        Можно добавить еще один параметр в метод reduce, который будет являться аккумулятором.
+        */
+        int result2 = list.stream().reduce(1, (accumulator, element) ->
+                accumulator * element);
+        System.out.println(result2);
+//        Вывод:
+//        960
+        int result2_1 = listHasNoElements.stream().reduce(1, (accumulator, element) ->
+                accumulator * element);
+        System.out.println(result2_1);
+//        Вывод:
+//        1
+        /*
+        Когда добавляется еще один параметр на первое место, он будет являться первичным значением
+        (начальным значением) переменной accumulator.
+        Переменной accumulator присваивается значение равное 1, и теперь с первого элемента stream-a
+        передаются значения переменной element.
+        accumulator = 1,  5,  40,  80,  320,  960.
+        element =     5,  8,   2,   4,    3.
+        Когда используется этот вариант метода reduce, то null значение уже точно не будет получено потому, что,
+        как минимум, указано значение аккумулятора = 1. Поэтому здесь нет необходимости в конце выражения
+        использовать метод get. Метод reduce возвращает объект типа Integer.
+         */
+
+        /*
+        Задание-пример использование метода reduce.
+        Необходимо конкатенировать все элементы объекта типа List, который содержит объекты типа String.
+         */
+        List<String> list2 = new ArrayList<>();
+        list2.add("privet");
+        list2.add("kak dela?");
+        list2.add("OK");
+        list2.add("poka");
+        list2.add("gooooood");
+
+        String list2Result = list2.stream().reduce((accumulator, element) ->
+                accumulator + " " + element).get();
+//        Null значение тут не вернется, поэтому вызывается метод get в конце
+        System.out.println(list2Result);
+//        Вывод:
+//        privet kak dela? OK poka gooooood
+
+        /*
+        Если использовать вариант №1, где используются в методе reduce в lambda выражении два параметра,
+        то желательно обезопасить себя и воспользоваться методом isPresent (присутствует результат после метода reduce?).
+        Если использовать вариант №2, где аккумулятору задается изначальное значение, то метод get в конце
+        нет смысла использовать, да и Java не даст воспользоваться этим методом, т.к. результат будет, как минимум,
+        это начальное значение аккумулятора.
+        */
+    }
 }
