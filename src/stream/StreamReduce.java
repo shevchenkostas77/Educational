@@ -12,7 +12,7 @@ n-ое количество элементов в stream до одного. Пр
 Методы Stream не меняют саму коллекцию или массив, от которой был создан stream.
 */
 
-public class streamReduce {
+public class StreamReduce {
     public static void main(String[] args) {
         /*
         Задание-пример использование метода reduce.

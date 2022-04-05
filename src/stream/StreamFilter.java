@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 Методы Stream не меняют саму коллекцию или массив, от которой был создан stream.
 */
 
-public class streamFilter {
+public class StreamFilter {
     public static void main(String[] args) {
         Student st1 = new Student("Ivan" , 'm', 22, 3, 8.3);
         Student st2 = new Student("Nikolay", 'm', 28, 2, 6.4);
