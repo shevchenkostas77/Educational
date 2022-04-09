@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 
 /*
 Метод distinct (intermediate method).
-Возвращает stream уникальных элементов, а проверяет их с помощью метода equals&
+Возвращает stream уникальных элементов, а проверяет их с помощью метода equals.
 Методы Stream не меняют саму коллекцию или массив, от которой был создан stream.
 */
 
