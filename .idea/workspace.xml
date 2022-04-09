@@ -49,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.StreamCount">
+  <component name="RunManager" selected="Application.StreamPeek">
     <configuration name="StreamConcat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="stream.StreamConcat" />
       <module name="blackBeltJava" />
@@ -102,8 +102,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamSorted" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="stream.StreamSorted" />
+    <configuration name="StreamPeek" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="stream.StreamPeek" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -117,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StreamPeek" />
         <item itemvalue="Application.StreamCount" />
         <item itemvalue="Application.StreamDistinct" />
         <item itemvalue="Application.StreamFilter" />
         <item itemvalue="Application.StreamConcat" />
-        <item itemvalue="Application.StreamSorted" />
       </list>
     </recent_temporary>
   </component>
