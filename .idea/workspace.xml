@@ -49,9 +49,22 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.StreamConcat">
+  <component name="RunManager" selected="Application.StreamDistinct">
     <configuration name="StreamConcat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="stream.StreamConcat" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="stream.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StreamDistinct" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="stream.StreamDistinct" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -89,13 +102,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StreamMap" />
-      <module name="blackBeltJava" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="StreamSorted" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="stream.StreamSorted" />
       <module name="blackBeltJava" />
@@ -111,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StreamDistinct" />
+        <item itemvalue="Application.StreamFilter" />
         <item itemvalue="Application.StreamConcat" />
         <item itemvalue="Application.StreamSorted" />
         <item itemvalue="Application.StreamForEach" />
-        <item itemvalue="Application.StreamFilter" />
-        <item itemvalue="Application.StreamMap" />
       </list>
     </recent_temporary>
   </component>
