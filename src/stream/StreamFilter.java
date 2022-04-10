@@ -69,7 +69,7 @@ class Student {
     private int course;
     private double averageGrade;
 
-    public Student(String name, char sex, int age, int course, double averagegrade) {
+    public Student(String name, char sex, int age, int course, double averageGrade) {
         this.name = name;
         this.sex = sex;
         this.age = age;
