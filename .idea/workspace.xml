@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/multithreading/VariantsCreatingThreading.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multithreading/VariantsCreatingThreading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multithreading/VariantsCreatingThreading.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.IntroToMultithreading">
+  <component name="RunManager" selected="Application.VariantsCreatingThreading">
     <configuration name="IntroToMultithreading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.IntroToMultithreading" />
       <module name="blackBeltJava" />
@@ -63,19 +63,6 @@
     </configuration>
     <configuration name="StreamFindFirst" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="stream.StreamFindFirst" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="stream.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StreamFlatMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="stream.StreamFlatMap" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -113,13 +100,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VariantsCreatingThreading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.VariantsCreatingThreading" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.VariantsCreatingThreading" />
         <item itemvalue="Application.IntroToMultithreading" />
         <item itemvalue="Application.StreamParallelStream" />
         <item itemvalue="Application.StreamMapToInt" />
         <item itemvalue="Application.StreamFindFirst" />
-        <item itemvalue="Application.StreamFlatMap" />
       </list>
     </recent_temporary>
   </component>
