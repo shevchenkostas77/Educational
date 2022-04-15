@@ -179,6 +179,8 @@ JVM после вызова метода start.
         Thread thread1 = new Thread(new MyRunnable_1());
         Thread thread2 = new Thread(new MyRunnable_2());
 
+Класс имплементирующий Runnable  - это ещё не поток. Поток получается, вставив объект данного класса в параметр
+конструктора класса Thread.
 Запускаются эти потоки таким же образом, через вызов метода start:
 
         thread1.start():
