@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThread.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadNameAndThreadPriority.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multithreading/ThreadNameAndThreadPriority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadNameAndThreadPriority.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadNameAndThreadPriority.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +48,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ThreadNameAndThreadPriority">
-    <configuration name="IntroToMultithreading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.IntroToMultithreading" />
+  <component name="RunManager" selected="Application.ThreadState">
+    <configuration name="SleepAndJoin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.SleepAndJoin" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -69,25 +62,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StreamMapToInt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="stream.StreamMapToInt" />
+    <configuration name="SleepAndJoin_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.SleepAndJoin_2" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="stream.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StreamParallelStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="stream.StreamParallelStream" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="stream.*" />
+          <option name="PATTERN" value="multithreading.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,8 +88,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VariantsCreatingThreading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.VariantsCreatingThreading" />
+    <configuration name="ThreadState" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.ThreadState" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadStates" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.ThreadStates" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -123,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadState" />
+        <item itemvalue="Application.SleepAndJoin" />
+        <item itemvalue="Application.ThreadStates" />
+        <item itemvalue="Application.SleepAndJoin_2" />
         <item itemvalue="Application.ThreadNameAndThreadPriority" />
-        <item itemvalue="Application.VariantsCreatingThreading" />
-        <item itemvalue="Application.IntroToMultithreading" />
-        <item itemvalue="Application.StreamParallelStream" />
-        <item itemvalue="Application.StreamMapToInt" />
       </list>
     </recent_temporary>
   </component>
