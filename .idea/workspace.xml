@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThread.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadNameAndThreadPriority.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multithreading/ThreadNameAndThreadPriority.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyRunnable_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThreadExtendsThread_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/VariantsCreatingThreading.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

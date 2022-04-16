@@ -7,8 +7,7 @@ public class ThreadNameAndThreadPriority implements Runnable {
                 Thread.currentThread().getName());
         /*
         Статический метод currentThread класса Thread показывает текущий поток, т.е. если внутри метода run
-        запустить метод currentThread, то этот метод покажет в каком потоке сейчас находимся. В данном
-        случае такой записью:
+        запустить метод currentThread, то этот метод покажет в каком потоке сейчас находимся:
 
                 Thread.currentThread().getName()
 
@@ -21,7 +20,7 @@ public class ThreadNameAndThreadPriority implements Runnable {
         используя метод start (JVM сам, за кулисами, будет запускать метод run).
          */
         Thread thread = new Thread(new ThreadNameAndThreadPriority());
-        thread.run();
+        thread.start();
         System.out.println("Method main. Thread name of = " +
                 Thread.currentThread().getName());
 //        Вывод:
@@ -71,7 +70,7 @@ public class ThreadNameAndThreadPriority implements Runnable {
 
 
         /*
-        Если самостоятельное не назвать поток (Thread) у него будет default имя и default имя выглядит
+        Если самостоятельное не назвать поток (Thread) у него будет default имя и это имя выглядит
         так:
         Thread-0 (Thread тире и его очередность 0, 1, 2 и тд. Это не означает в какой последовательности
         они будут запускаться. Просто имя.)
@@ -108,8 +107,6 @@ public class ThreadNameAndThreadPriority implements Runnable {
         - Thread.MAX_PRIORITY (приоритет равен 10);
         Используя готовые варианты читабельность кода улучшается.
          */
-
-
     }
 }
 
