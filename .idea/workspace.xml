@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/MyThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadNameAndThreadPriority.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadNameAndThreadPriority.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/Worker2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/Worker2.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ThreadState">
+  <component name="RunManager" selected="Application.SynchronousAndAsynchronous">
     <configuration name="SleepAndJoin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.SleepAndJoin" />
       <module name="blackBeltJava" />
@@ -75,8 +75,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadNameAndThreadPriority" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.ThreadNameAndThreadPriority" />
+    <configuration name="SynchronousAndAsynchronous" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.SynchronousAndAsynchronous" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -116,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SynchronousAndAsynchronous" />
         <item itemvalue="Application.ThreadState" />
         <item itemvalue="Application.SleepAndJoin" />
         <item itemvalue="Application.ThreadStates" />
         <item itemvalue="Application.SleepAndJoin_2" />
-        <item itemvalue="Application.ThreadNameAndThreadPriority" />
       </list>
     </recent_temporary>
   </component>
