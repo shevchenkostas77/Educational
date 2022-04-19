@@ -46,9 +46,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.Volatile">
-    <configuration name="SleepAndJoin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.SleepAndJoin" />
+  <component name="RunManager" selected="Application.DataRaceAndSynchronizedMethods">
+    <configuration name="DataRaceAndSynchronizedMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.DataRaceAndSynchronizedMethods" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -114,11 +114,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DataRaceAndSynchronizedMethods" />
         <item itemvalue="Application.Volatile" />
         <item itemvalue="Application.Volotile" />
         <item itemvalue="Application.SynchronousAndAsynchronous" />
         <item itemvalue="Application.ThreadState" />
-        <item itemvalue="Application.SleepAndJoin" />
       </list>
     </recent_temporary>
   </component>
