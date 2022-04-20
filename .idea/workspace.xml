@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +44,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.DataRaceAndSynchronizedMethods">
+  <component name="RunManager" selected="Application.MonitorAndSynchronizedBlocks">
     <configuration name="DataRaceAndSynchronizedMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.DataRaceAndSynchronizedMethods" />
       <module name="blackBeltJava" />
@@ -60,8 +58,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SynchronousAndAsynchronous" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.SynchronousAndAsynchronous" />
+    <configuration name="MonitorAndSynchronizedBlocks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.MonitorAndSynchronizedBlocks" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -73,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThreadState" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.ThreadState" />
+    <configuration name="SynchronousAndAsynchronous" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.SynchronousAndAsynchronous" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -114,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MonitorAndSynchronizedBlocks" />
         <item itemvalue="Application.DataRaceAndSynchronizedMethods" />
         <item itemvalue="Application.Volatile" />
         <item itemvalue="Application.Volotile" />
         <item itemvalue="Application.SynchronousAndAsynchronous" />
-        <item itemvalue="Application.ThreadState" />
       </list>
     </recent_temporary>
   </component>
