@@ -1,4 +1,4 @@
-package multithreading;
+package multithreading.monitorandsynchronizedblocks;
 
 /*
 Монитор - это специальный механизм, благодаря которому достигается корректная работа
@@ -17,13 +17,13 @@ synchronized code. Логика вот такова.
 "запираются двери" для остальных потоков. Когда единственный поток делающий работу в
 synchronized коде заканчивает ее и lock снимается, монитор становится свободным до тех
 пор, пока следующий поток не заберется в synchronized код. Т.е. "закрывается дверь",
-когда монитор занят, когда монитор становится свободным "открываются двери" для других
+когда монитор занят, когда монитор становится свободным "открывается дверь" для других
 потоков и какой первый из потоков зайдет, т.е. займет монитор, тот и будет работать с
 synchronized кодом. Суть такова.
 ВАЖНЫЙ МОМЕНТ!
 Любая блокировка с помощью синхронизации идет на объекте или на классе, а не на каком-то
 коде, т.е. идет синхронизация, используя монитор объекта или класса (синхронизация идет на
-этом уровне благодаря монитору объекта или монитору класса). У метода, да, возможно написать
+этом уровне благодаря монитору объекта или монитору класса). Да, возможно написать
 synchronized методы, но у метода нет никакого монитора, для синхронизации метода используется
 мониторы объекта или класса.
 
@@ -45,28 +45,33 @@ public class MonitorAndSynchronizedBlocks {
         Thread thread2 = new Thread(runnable);
         Thread thread3 = new Thread(runnable);
 
+        thread1.setName("thread-1");
+        thread2.setName("thread-2");
+        thread3.setName("thread-3");
+
         thread1.start();
         thread2.start();
         thread3.start();
 
         /*
-        class Counter2 {
-            volatile static int count = 0;
-        }
-
-        class MyRunnableImpl implements Runnable {
-            private synchronized void doWork1() {
-                Counter2.count++;
-                System.out.println(Counter2.count);
-            }
-
-            @Override
-            public void run() {
-                for (int i = 0; i < 3; i++) {
-                    doWork1();
+                class Counter2 {
+                    volatile static int count = 0;
                 }
-            }
-        }
+
+                class MyRunnableImpl implements Runnable {
+                    private synchronized void doWork1() {
+                        Counter2.count++;
+                        System.out.println(Counter2.count);
+                    }
+
+                    @Override
+                    public void run() {
+                        for (int i = 0; i < 3; i++) {
+                            doWork1();
+                        }
+                    }
+                }
+
         Вывод:
         1
         2
@@ -89,29 +94,43 @@ public class MonitorAndSynchronizedBlocks {
         синхронизации будет использоваться. Пусть это будет this и помещается код,
         который будет синхронным в фигурные скобки.
 
-        ДО:
-        class MyRunnableImpl implements Runnable {
-            private synchronized void doWork1() {
+                ДО:
+                class MyRunnableImpl implements Runnable {
+                    private synchronized void doWork1() {
+                        Counter2.count++;
+                        System.out.println(Counter2.count);
+                    }
+
+                ПОСЛЕ:
+                class MyRunnableImpl implements Runnable {
+                    private void doWork1() {
+                        synchronized(this) {
+                            Counter2.count++;
+                            System.out.println(Counter2.count);
+                        }
+                    }
+
+        this - объект или название класса на которое будет синхронизация, т.е. чей
+        монитор будет использоваться, чей монитор будет lock в начале кода и unlock
+        в конце кода. И эти две строчки кода будут синхронизированными:
+
                 Counter2.count++;
                 System.out.println(Counter2.count);
-            }
 
-        ПОСЛЕ:
-        class MyRunnableImpl implements Runnable {
-            private void doWork1() {
-                synchronized(this) {
-                    Counter2.count++;
-                    System.out.println(Counter2.count);
-                }
-            }
-        this - объект или название класса на которое будет синхронизация, т.е. чей
-        монитор будет использоваться, чей монитор будет lock и unlock в конце кода.
-        И эти две строчки кода будут синхронизированными:
-            Counter2.count++;
-            System.out.println(Counter2.count);
         Тут синхронизация будет происходить на объекте this, т.е. когда вызывается
         метод doWork1, он не статичный, поэтому перед тем, как его вызвать необходимо
-        создать объект MyRunnableImpl.
+        создать объект MyRunnableImpl. Вот этого объекта монитор и будет использован
+        для синхронизации. Т.е. создается объект:
+                MyRunnableImpl runnable = new MyRunnableImpl();
+        и далее при создании потоков используется этот объект:
+                Thread thread1 = new Thread(runnable);
+                Thread thread2 = new Thread(runnable);
+                Thread thread3 = new Thread(runnable);
+        В классе MyRunnableImpl, который имплементирует функциональный интерфейс Runnable
+        переопределяется метод run, внутри метода указываются инструкции, которые будут выполнены
+        после запуска потоков и вместе с этим, при запуске потоков будет использован монитор
+        объекта класса MyRunnableImpl для синхронизации потоков, в данном случае этот объект -
+        runnable.
         Если запустить этот измененный код,
         Вывод:
         1
@@ -129,11 +148,18 @@ public class MonitorAndSynchronizedBlocks {
         все работало так же.
         Возникает вопрос, использует ли какой-нибудь монитор synchronized методы?
         Т.е., когда тут:
-            public synchronized void doWork1() {
+
+                public synchronized void doWork1() {
+
         пишется ключевое слово synchronized монитор какого-то объекта или класса используется?
         Да, конечно иначе просто никак! Когда используются synchronized методы, то явно этот
-        объект или класс не указывается. А когда используется synchronized blocks в скобках
-        необходимо указать монитор какого объекта будет использоваться для синхронизации.
+        объект или класс не указывается. Можно считать, что "за кулисами" после запуска программы
+        сигнатура метода становится такой:
+
+                public synchronized(this) void doWork1() {
+
+        А когда используется synchronized blocks в скобках необходимо указать монитор какого
+        объекта будет использоваться для синхронизации.
         Когда происходит работа с synchronized методами, если метод не статичный, то всегда
         идет синхронизация на объекте this.
 
@@ -141,28 +167,26 @@ public class MonitorAndSynchronizedBlocks {
         Самое главное отличие synchronized block в том, что можно синхронизировать не весь
         метод, а его часть. Например, есть еще один метод в классе MyRunnableImpl:
 
-            class MyRunnableImpl implements Runnable {
+                class MyRunnableImpl implements Runnable {
 
-            private void doWork2() {
-                System.out.println("Ura!!!");
-            }
-
-            private void doWork1() {
-                doWork2();
-                // private потому, что метод doWork1 вызывается только в MyRunnableImpl
-                synchronized (this) {
-                    Counter2.count++;
-                    System.out.println(Counter2.count);
+                private void doWork2() {
+                    System.out.println("Ura!!!");
                 }
-            }
 
-            @Override
-            public void run() {
-                for (int i = 0; i < 3; i++) {
-                    doWork1();
+                private void doWork1() {  private потому, что метод doWork1 вызывается только в MyRunnableImpl
+                    doWork2();
+                    synchronized (this) {
+                        Counter2.count++;
+                        System.out.println(Counter2.count);
+                    }
                 }
-            }
-        }
+
+                @Override
+                public void run() {
+                    for (int i = 0; i < 3; i++) {
+                        doWork1();
+                    }
+                }
 
         в методе doWork1 вызывается метод doWork2. В методе doWork1 часть кода не синхронизирована
         (до ключевого слова synchronized) и часть кода синхронизирована с помощью синхронизированного
@@ -170,7 +194,7 @@ public class MonitorAndSynchronizedBlocks {
         методу doWork1, они все стазу заходят в этот метод, все одновременно могут работать с методом
         doWork2, но когда дело дойдет до синхронизированного блока, то в него может попасть одновременно
         только один поток, все остальные будут ждать. Т.е. если есть уверенность, что часть кода в методе
-        doWork1, а именно выполнение метода doWork2 не может вызвать какие-то проблемы,  типа Data race,
+        doWork1, а именно выполнение метода doWork2 не может вызвать какие-то проблемы, типа Data race,
         то почему бы не дать возможность эту часть кода выполнить сразу нескольким потокам. А когда
         дело доходит до блока когда, когда необходимо, чтобы потоки работали по одному, то этот код
         необходимо заключить в synchronized block. Это основное отличие synchronized methods от
@@ -202,11 +226,7 @@ public class MonitorAndSynchronizedBlocks {
         какая-то часть кода, а именно метод doWork2, может выполняться сразу несколькими потоками
         одновременно, а когда дело доходит синхронизированной части кода, то тут уже только один поток
         в одно и тоже время может выполнять эту синхронизированную часть кода.
-
-
-
         */
-
     }
 }
 
@@ -217,7 +237,7 @@ class Counter2 {
 class MyRunnableImpl implements Runnable {
 
     private void doWork2() {
-        System.out.println("Ura!!!");
+        System.out.println("Ura!!! " + Thread.currentThread());
     }
 
     private void doWork1() {
@@ -225,7 +245,7 @@ class MyRunnableImpl implements Runnable {
         // private потому, что метод doWork1 вызывается только в MyRunnableImpl
         synchronized (this) {
             Counter2.count++;
-            System.out.println(Counter2.count);
+            System.out.println(Counter2.count + " " + Thread.currentThread());
         }
     }
 
