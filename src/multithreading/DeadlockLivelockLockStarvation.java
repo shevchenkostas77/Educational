@@ -10,7 +10,7 @@ Deadlock - ситуация, когда 2 или более потоков за�
 порядке.
 */
 
-public class DeadlockLivelock {
+public class DeadlockLivelockLockStarvation {
     public static final Object lock1 = new Object();
     public static final Object lock2 = new Object();
 
@@ -28,12 +28,12 @@ class Thread10 extends Thread {
     @Override
     public void run() {
         System.out.println("Thread10: Попытка захватить монитор объекта lock1");
-        synchronized (DeadlockLivelock.lock1) { // lock на объекте Deadlock
+        synchronized (DeadlockLivelockLockStarvation.lock1) { // lock на объекте Deadlock
             // Если поток Thread10 внутри synchonized блока, то он сумел захватить монитор
             System.out.println("Thread10: Монитор объекта lock1 захвачен");
             // Дальше нужно провести синхронизацию используя монитор объекта lock2
             System.out.println("Thread10: Попытка захватить монитор объекта lock2");
-            synchronized (DeadlockLivelock.lock2) {
+            synchronized (DeadlockLivelockLockStarvation.lock2) {
                 System.out.println("Thread10: Мониторы объектов lock1 " +
                         "и lock2 захвачены");
             }
@@ -45,10 +45,10 @@ class Thread20 extends Thread {
     @Override
     public void run() {
         System.out.println("Thread20: Попытка захватить монитор объекта lock2");
-        synchronized (DeadlockLivelock.lock2) {
+        synchronized (DeadlockLivelockLockStarvation.lock2) {
             System.out.println("Thread20: Монитор объекта lock2 захвачен");
             System.out.println("Thread20: Попытка захватить монитор объекта lock1");
-            synchronized (DeadlockLivelock.lock1) {
+            synchronized (DeadlockLivelockLockStarvation.lock1) {
                 System.out.println("Thread20: Мониторы объектов lock1 " +
                         "и lock2 захвачены");
             }
@@ -59,7 +59,7 @@ class Thread20 extends Thread {
 /*
 Thread20 в своем методе run пытается в первую очередь захватить монитор объекта
 lock2 (первый synchronized блок). Если поток находится внутри synchronized блока,
-то Thread20 сумел захватил монитор объекта lock2 и выведется сообщение: "Thread20:
+то Thread20 сумел захватил монитор объекта lock2, и выведется сообщение: "Thread20:
 Монитор объекта lock2 захвачен". Потом он пытается захватить монитор объекта lock1
 (выводится сообщение: "Thread20: Попытка захватить монитор объекта lock1") и если
 поток Thread20 зашел во второй synchronized блок метода run, тогда Thread20 сумел
