@@ -1,4 +1,4 @@
-package multithreading.monitorandsynchronizedblocks;
+package multithreading.monitor_and_synchronized_blocks;
 
 /*
 Монитор - это специальный механизм, благодаря которому достигается корректная работа

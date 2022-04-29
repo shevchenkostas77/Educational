@@ -1,4 +1,4 @@
-package multithreading.interfacelockandreentrantlockclass;
+package multithreading.interface_lock_and_reentrant_lock_class;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

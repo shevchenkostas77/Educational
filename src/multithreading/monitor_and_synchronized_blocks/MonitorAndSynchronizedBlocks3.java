@@ -1,4 +1,4 @@
-package multithreading.monitorandsynchronizedblocks;
+package multithreading.monitor_and_synchronized_blocks;
 
 /*
 Можно синхронизировать работу не только одного метода, а можно синхронизировать работу нескольких

@@ -1,4 +1,4 @@
-package multithreading.monitorandsynchronizedblocks;
+package multithreading.monitor_and_synchronized_blocks;
 
 public class MonitorAndSynchronizedBlocks2 {
     volatile static int counter = 0;
