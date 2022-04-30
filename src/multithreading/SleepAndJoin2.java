@@ -1,6 +1,6 @@
 package multithreading;
 
-public class SleepAndJoin_2 {
+public class SleepAndJoin2 {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Method main begins");
         Thread thread = new Thread(new Worker());
