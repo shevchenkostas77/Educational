@@ -2,7 +2,7 @@ package multithreading;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /*
 Thread pool - это множество потоков, каждый из которых предназначен для выполнения той или иной задачи.
@@ -58,6 +58,11 @@ public class ThreadPoolAndExecutorService {
             executorService.execute(new RunnableImplementation100()); // execute c англ. выполнять
         }
         executorService.shutdown();
+        try {
+            executorService.awaitTermination(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("Thread main ends");
         /*
         Запуск программы. Вывод:
@@ -159,6 +164,79 @@ public class ThreadPoolAndExecutorService {
         ExecutorService выполнил все задания и после программа закончилась. Вызвав метод shutdown, даем понять программе,
         что задач больше не будет и программа завершится после того, как все уже полученные задания выполнятся.
 
+        Метод execute передает задание (task) в Thread pool, где оно выполняется одним из потоков.
+        После выполнения метода shutdown ExecutorService понимает, что новых заданий больше не будет и, выполнив
+        поступившие до этого задания, прекращает работу.
+
+        Метод awaitTermination (с англ. ждать прекращения).
+        Метод awaitTermination всегда вызывается после метода shutdown. Это  метод принимает два параметра:
+        - время;
+        - TimeUnit (с англ. единица времени) DAYS, HOURS, SECONDS и тд.;
+        Метод awaitTermination выбрасывает InterruptedException. Этот метод работает почти как метод join. Он заставляет
+        ожидать поток в котором он вызывается. В данном примере он вызывается потока main, значит поток main и будет
+        ждать. Чего он будет ждать? Поток main остановиться и будет ждать до тех пор, пока ExecutorService не закончит
+        всю свою работу либо пока не пройдет указанное время в параметрах метода awaitTermination. Что первое произойдет
+        из этих двух действий, тогда поток в котором был вызван метод awaitTermination продолжит свою работу. Для
+        наглядности будет изменена программа:
+
+                public class ThreadPoolAndExecutorService {
+                    public static void main(String[] args) {
+                        for (int i = 0; i < 10; i++) {
+                            executorService.execute(new RunnableImplementation100()); // execute c англ. выполнять
+                        }
+                        executorService.shutdown();
+                        try {
+                            executorService.awaitTermination(5, TimeUnit.SECONDS);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println("Thread main ends");
+                    }
+                }
+
+                class RunnableImplementation100 implements Runnable {
+
+                    @Override
+                    public void run() {
+                        System.out.println(Thread.currentThread().getName() + "begins work");
+                        try {
+                            Thread.sleep(4_000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        System.out.println(Thread.currentThread().getName() + "Ends work");
+                    }
+                }
+
+        Поток main не будет дожидаться окончания работы всех десяти заданий, он подождет пять секунд и продолжит работу.
+        Т.е. выведет на экран выражение "Thread main ends".
+        Запуск программы. Вывод:
+        pool-1-thread-2 begins work
+        pool-1-thread-1 begins work
+        pool-1-thread-3 begins work
+        pool-1-thread-4 begins work
+        pool-1-thread-5 begins work
+        pool-1-thread-3 Ends work
+        pool-1-thread-1 Ends work
+        pool-1-thread-3 begins work
+        pool-1-thread-5 Ends work
+        pool-1-thread-5 begins work
+        pool-1-thread-4 Ends work
+        pool-1-thread-4 begins work
+        pool-1-thread-1 begins work
+        pool-1-thread-2 Ends work
+        pool-1-thread-2 begins work
+        Thread main ends            // через 5 секунд поток main вывел данное сообщение, т.е. продолжил работу
+        pool-1-thread-5 Ends work
+        pool-1-thread-4 Ends work
+        pool-1-thread-2 Ends work
+        pool-1-thread-3 Ends work
+        pool-1-thread-1 Ends work
+
+        Метод awaitTermination принуждает поток в котором он вызвался подождать до тех пор, пока не выполнится одно из
+        двух событий: либо ExecutorService прекратит свою работу, либо пройдет время, указанное в параметре метода
+        метода awaitTermination.
+
          */
     }
 }
@@ -167,11 +245,12 @@ class RunnableImplementation100 implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName());
+        System.out.println(Thread.currentThread().getName() + " begins work");
         try {
-            Thread.sleep(500);
+            Thread.sleep(4_000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println(Thread.currentThread().getName() + " Ends work");
     }
 }
