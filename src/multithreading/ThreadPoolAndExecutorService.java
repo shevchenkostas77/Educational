@@ -237,6 +237,9 @@ public class ThreadPoolAndExecutorService {
         двух событий: либо ExecutorService прекратит свою работу, либо пройдет время, указанное в параметре метода
         метода awaitTermination.
 
+        Еще один вид Thread pool:
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        В этом Thread pool будет содержаться всего один поток.
          */
     }
 }
