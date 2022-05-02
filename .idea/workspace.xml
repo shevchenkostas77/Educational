@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/RunnableImplementation100.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/RunnableImplementation100.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadPoolAndExecutorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadPoolAndExecutorService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
