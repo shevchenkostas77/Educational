@@ -2,6 +2,7 @@ package multithreading;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /*
@@ -158,6 +159,7 @@ public class ThreadPoolAndExecutorService {
         поступило Thread pool-у и тд. Шесть раз второй поток выполнял свою работу, становился свободным потоком и брал
         новое задание. Если задание выполняется быстрее, чем поступает в Thread pool, то не нужно удивляться, что один
         какой-то поток выполняет больше работы, чем остальные.
+        Помимо имени потока (thread-2) в выводах указывается имя pool-a (pool-1): pool-1-thread-2.
 
         В примерах выводов выше было в конце добавлена фраза в скобках "программа продолжает свою работу". Все потому,
         что ExecutorService ждет новых заданий, что бы и их выполнить. Поэтому программа не заканчивает свою работу.

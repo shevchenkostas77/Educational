@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/RunnableImplementation100.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/RunnableImplementation100.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadPoolAndExecutorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/multithreading/ThreadPoolAndExecutorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,26 +53,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ThreadPoolAndExecutorService">
+  <component name="RunManager" selected="Application.ThreadPoolAndExecutorService2">
     <configuration name="DaemonThreads" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.DaemonThreads" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="multithreading.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InterfaceLockAndReentrantLockClass3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.interface_lock_and_reentrant_lock_class.InterfaceLockAndReentrantLockClass3" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="multithreading.interface_lock_and_reentrant_lock_class.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,13 +106,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThreadPoolAndExecutorService2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.ThreadPoolAndExecutorService2" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="multithreading.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ThreadPoolAndExecutorService2" />
         <item itemvalue="Application.ThreadPoolAndExecutorService" />
         <item itemvalue="Application.SleepAndJoin2" />
         <item itemvalue="Application.InterruptionThreads" />
         <item itemvalue="Application.DaemonThreads" />
-        <item itemvalue="Application.InterfaceLockAndReentrantLockClass3" />
       </list>
     </recent_temporary>
   </component>
