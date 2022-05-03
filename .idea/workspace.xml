@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multithreading/ThreadPoolAndExecutorService2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +50,9 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ThreadPoolAndExecutorService2">
-    <configuration name="DaemonThreads" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.DaemonThreads" />
+  <component name="RunManager" selected="Application.CallableAndFuture">
+    <configuration name="CallableAndFuture" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.CallableAndFuture" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -118,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CallableAndFuture" />
         <item itemvalue="Application.ThreadPoolAndExecutorService2" />
         <item itemvalue="Application.ThreadPoolAndExecutorService" />
         <item itemvalue="Application.SleepAndJoin2" />
         <item itemvalue="Application.InterruptionThreads" />
-        <item itemvalue="Application.DaemonThreads" />
       </list>
     </recent_temporary>
   </component>
