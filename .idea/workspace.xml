@@ -50,7 +50,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.CallableAndFuture">
+  <component name="RunManager" selected="Application.CallableAndFuture2">
     <configuration name="CallableAndFuture" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.CallableAndFuture" />
       <module name="blackBeltJava" />
@@ -64,8 +64,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterruptionThreads" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.InterruptionThreads" />
+    <configuration name="CallableAndFuture2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.CallableAndFuture2" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -77,8 +77,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SleepAndJoin2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.SleepAndJoin2" />
+    <configuration name="SemaphoreExemple" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multithreading.SemaphoreExemple" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -118,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CallableAndFuture2" />
+        <item itemvalue="Application.SemaphoreExemple" />
         <item itemvalue="Application.CallableAndFuture" />
         <item itemvalue="Application.ThreadPoolAndExecutorService2" />
         <item itemvalue="Application.ThreadPoolAndExecutorService" />
-        <item itemvalue="Application.SleepAndJoin2" />
-        <item itemvalue="Application.InterruptionThreads" />
       </list>
     </recent_temporary>
   </component>
