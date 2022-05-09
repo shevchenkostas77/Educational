@@ -75,3 +75,92 @@ target добавлять все элементы из ArrayList-a source. В Ar
 
 Вывелся другой результат. Что это означает? Это означает, что в данном примере добавляя в ArrayList элементы используя
 несколько потоков невозможно предугадать результат. Поэтому ArrayList нужно синхронизировать (создавать обертку):
+
+        public class SynchronizedCollectionExample {
+            public static void main(String[] args) {
+                ArrayList<Integer> source = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    source.add(i);
+                }
+
+                // ArrayList<Integer> target = new ArrayList<>();
+                List<Integer> synchList =
+                        Collections.synchronizedList(new ArrayList());
+                // синхронизация новосозданного ArrayList-а, можно использовать ранее созданный ArrayList
+                // переменная synchList будет ссылаться на синхронизированный ArrayList (ArrayList в обертке)
+
+                Runnable runnable = () -> {
+                    synchList.addAll(source);
+                };
+
+                Thread thread1 = new Thread(runnable);
+                Thread thread2 = new Thread(runnable);
+
+                thread1.start();
+                thread2.start();
+
+                try {
+                    thread1.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    thread2.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(synchList);
+            }
+        }
+
+Запуск программы. Вывод:
+[0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+
+Первый поток (thread1 или thread2, какой быстрее сработал) начинает добавлять элементы из source в synchList, но когда
+он начинает это делать, то доступ для всех других потоков закрыт. Только после того, как этот поток закончит свою
+работу, к работе приступит второй поток (thread1 или thread2, в зависимости от того, какой сработал первым). Поэтому
+запустив эту программу бесчисленное количество раз, результат будет всегда одним и тем же. Теперь возможно предсказать
+результат выполнения программы. Как было выше написано, тут у synchList в каждом методе, в том числе методе addAll стоит
+Lock. Теперь с данным листом в один и тот же момент времени может работать только один поток. Даже, если два потока
+должны выполнить разную работу, используя разные методы, пока один поток свою работу не закончит, второй не может
+приступить к своей. Из-за этого производительность (performance) страдает.
+ */
+
+public class SynchronizedCollectionExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> source = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            source.add(i);
+        }
+
+        // ArrayList<Integer> target = new ArrayList<>();
+        List<Integer> synchList =
+                Collections.synchronizedList(new ArrayList());
+        // синхронизация новосозданного ArrayList-а, можно использовать ранее созданный ArrayList
+        // переменная synchList будет ссылаться на синхронизированный ArrayList (ArrayList в обертке)
+
+        Runnable runnable = () -> {
+            synchList.addAll(source);
+        };
+
+        Thread thread1 = new Thread(runnable);
+        Thread thread2 = new Thread(runnable);
+
+        thread1.start();
+        thread2.start();
+
+        try {
+            thread1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(synchList);
+    }
+}
