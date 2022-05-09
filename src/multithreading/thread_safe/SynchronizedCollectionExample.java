@@ -29,3 +29,49 @@ ArrayList. Класс Collections (не интерфейс, а класс) пр�
 collections, ведь Concurrent collections были созданы конкретно для работы с многопоточностью. А Synchronized
 collections получаются из обычных коллекций с помощью из доработки (их обертки).
  */
+
+/*
+В программе два разных потока (thread1 и thread2) будут проделывать одно и тоже одновременно, они будут в ArrayList
+target добавлять все элементы из ArrayList-a source. В ArrayList-е source содержаться элементы: 0, 1, 2, 3, 4.
+Код:
+        public class SynchronizedCollectionExample {
+            public static void main(String[] args) {
+                ArrayList<Integer> source = new ArrayList<>();
+                for (int i = 0; i < 5; i++) {
+                    source.add(i);
+                }
+
+                ArrayList<Integer> target = new ArrayList<>();
+                Runnable runnable = () -> {
+                    target.addAll(source);
+                };
+
+                Thread thread1 = new Thread(runnable);
+                Thread thread2 = new Thread(runnable);
+
+                thread1.start();
+                thread2.start();
+
+                try {
+                    thread1.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    thread2.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                System.out.println(target);
+            }
+        }
+
+Запуск программы. Вывод:
+[0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+
+Вроде как в output-e все нормально. Запуск программы еще раз. Вывод:
+[0, 1, 2, 3, 4]
+
+Вывелся другой результат. Что это означает? Это означает, что в данном примере добавляя в ArrayList элементы используя
+несколько потоков невозможно предугадать результат. Поэтому ArrayList нужно синхронизировать (создавать обертку):
