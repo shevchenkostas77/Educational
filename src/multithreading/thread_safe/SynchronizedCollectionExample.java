@@ -240,7 +240,7 @@ ConcurrentModificationException. Вместо традиционного ArrayLi
                 Thread thread1 = new Thread(runnable1);
                 Thread thread2 = new Thread(runnable2);
 
-                thread1.start(); // потоки работают параллельно
+                thread1.start();
                 thread2.start();
 
                 try {
@@ -368,6 +368,8 @@ public class SynchronizedCollectionExample {
         List<Integer> synchList = Collections.synchronizedList(arrayList);
         // используется уже готовый ArrayList (даже заполненный)
 
+        // пока ArrayList не заполнится элементами, создание runnable1 не происходит,
+        // все происходит в одном потоке (main) - последовательно друг за другом
         Runnable runnable1 = () -> { // проходится по всем элементам и выводит на экран при помощи Iterator-a
             synchronized (synchList) {
                 Iterator<Integer> iterator = synchList.iterator();
