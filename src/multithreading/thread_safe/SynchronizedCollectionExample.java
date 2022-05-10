@@ -371,7 +371,7 @@ public class SynchronizedCollectionExample {
         // пока ArrayList не заполнится элементами, создание runnable1 не происходит,
         // все происходит в одном потоке (main) - последовательно друг за другом
         Runnable runnable1 = () -> { // проходится по всем элементам и выводит на экран при помощи Iterator-a
-            synchronized (synchList) {
+            synchronized (synchList) { // this = synchList
                 Iterator<Integer> iterator = synchList.iterator();
                 while (iterator.hasNext()) {
                     System.out.println(iterator.next());
@@ -380,7 +380,7 @@ public class SynchronizedCollectionExample {
         };
 
         Runnable runnable2 = () -> { // будет удалять один элемент с индексом 10 из коллекции
-            synchList.remove(10);
+            synchList.remove(10); // this = synchList
         };
 
         Thread thread1 = new Thread(runnable1);
