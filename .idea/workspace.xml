@@ -48,26 +48,13 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ArrayBlockingQueueExample">
+  <component name="RunManager" selected="Application.FileReaderAndFileWriter">
     <configuration name="ArrayBlockingQueueExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.thread_safe.ArrayBlockingQueueExample" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="multithreading.thread_safe.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AtomicIntegerExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.AtomicIntegerExample" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="multithreading.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,6 +88,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FileReaderAndFileWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.FileReaderAndFileWriter" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="working_with_files_IO_and_NIO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SynchronizedCollectionExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.thread_safe.SynchronizedCollectionExample" />
       <module name="blackBeltJava" />
@@ -116,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FileReaderAndFileWriter" />
         <item itemvalue="Application.ArrayBlockingQueueExample" />
         <item itemvalue="Application.CopyOnWriteArrayListExample" />
         <item itemvalue="Application.ConcurrentHashMapExample" />
         <item itemvalue="Application.SynchronizedCollectionExample" />
-        <item itemvalue="Application.AtomicIntegerExample" />
       </list>
     </recent_temporary>
   </component>
