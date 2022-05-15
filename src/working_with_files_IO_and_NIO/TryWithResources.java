@@ -55,8 +55,8 @@ import java.io.IOException;
             }
 
 ВАЖНО!!!
-Ресурс, который используется в Try with resources должен имплементировать интерфейс AutoCloseable.
-Допустим ресурс FileReader наследует класс InputStreamReader, InputStreamReader наследует абстрактный класс Reader,
+Ресурс, который используется в Try with resources должен имплементировать интерфейс AutoCloseable!
+Например, ресурс FileReader наследует класс InputStreamReader, InputStreamReader наследует абстрактный класс Reader,
 Reader имплементирует интерфейсы Readable и Closeable, Closeable происходит от интерфейса AutoCloseable.
  */
 
@@ -68,9 +68,13 @@ public class TryWithResources {
                 "Вот последняя правда, открытая мной.\n";
         try (FileWriter writer = new FileWriter("rubai.txt", true);
              FileReader reader = new FileReader("rubai.txt")) {
+            // Запись в файл
             for (int i = 0; i < rubai.length(); i++) {
                 writer.write(rubai.charAt(i));
             }
+            writer.close(); // тут метод close для того, чтобы после записи в файл можно было прочитать из файла
+
+            // чтение из файла
             int character;
             while((character = reader.read()) != -1) {
                 System.out.print((char)character);
