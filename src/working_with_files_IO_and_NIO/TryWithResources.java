@@ -1,7 +1,7 @@
 package working_with_files_IO_and_NIO;
 
-import java.io.FileWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -76,8 +76,8 @@ public class TryWithResources {
 
             // чтение из файла
             int character;
-            while((character = reader.read()) != -1) {
-                System.out.print((char)character);
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
             }
 
         } catch (IOException e) {

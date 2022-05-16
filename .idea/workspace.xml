@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/working_with_files_IO_and_NIO/TryWithResources.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/working_with_files_IO_and_NIO/TryWithResources.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rubai.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/TryWithResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/TryWithResources.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
