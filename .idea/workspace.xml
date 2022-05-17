@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/TryWithResources.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/TryWithResources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rubai.txt" beforeDir="false" afterPath="$PROJECT_DIR$/rubai.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/BufferedReaderAndBufferedWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/BufferedReaderAndBufferedWriter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +46,14 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.TryWithResources">
+  <component name="RunManager" selected="Application.BufferedReaderAndBufferedWriter">
     <configuration name="ArrayBlockingQueueExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="multithreading.thread_safe.ArrayBlockingQueueExample" />
       <module name="blackBeltJava" />
@@ -64,12 +67,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConcurrentHashMapExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="multithreading.thread_safe.ConcurrentHashMapExample" />
+    <configuration name="BufferedReaderAndBufferedWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.BufferedReaderAndBufferedWriter" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="multithreading.thread_safe.*" />
+          <option name="PATTERN" value="working_with_files_IO_and_NIO.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BufferedReaderAndBufferedWriter" />
         <item itemvalue="Application.TryWithResources" />
         <item itemvalue="Application.FileReaderAndFileWriter" />
         <item itemvalue="Application.ArrayBlockingQueueExample" />
         <item itemvalue="Application.CopyOnWriteArrayListExample" />
-        <item itemvalue="Application.ConcurrentHashMapExample" />
       </list>
     </recent_temporary>
   </component>
