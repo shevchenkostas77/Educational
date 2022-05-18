@@ -49,7 +49,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.DataInputStreamAndDataOutputStream">
+  <component name="RunManager" selected="Application.SerializationPart1">
     <configuration name="BufferedReaderAndBufferedWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.BufferedReaderAndBufferedWriter" />
       <module name="blackBeltJava" />
@@ -89,8 +89,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileReaderAndFileWriter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.FileReaderAndFileWriter" />
+    <configuration name="SerializationPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.SerializationPart1" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -117,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SerializationPart1" />
         <item itemvalue="Application.DataInputStreamAndDataOutputStream" />
         <item itemvalue="Application.FileInputStreamAndFileOutputStream" />
         <item itemvalue="Application.BufferedReaderAndBufferedWriter" />
         <item itemvalue="Application.TryWithResources" />
-        <item itemvalue="Application.FileReaderAndFileWriter" />
       </list>
     </recent_temporary>
   </component>
