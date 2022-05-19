@@ -165,7 +165,6 @@ public class SerializationPart2 { // сериализация
 
 Программист, который будет десериализировать:
 class Employee implements Serializable { // Первая версия класса Employee
-    static final long serialVertionUID = 1;
     String name;
     String department;
     int age;
@@ -277,7 +276,59 @@ serialVersionUID по умолчанию очень чувствительно �
 где 2 - это будет номер версии измененого класса.
 
 
-// Первый прграммист:
+Программист, который изменил класс и будет сериализировать:
+class Employee implements Serializable {
+    static final long serialVersionUID = 2;
+    String name;
+    String surname;
+    String department;
+    // int age;
+    transient double salary;
+    Car car;
+
+    public Employee(String name, String surname, String department,
+    // int age,
+    double salary, Car car) {
+        this.name = name;
+        this.surname = surname;
+        this.department = department;
+        // this.age = age;
+        this.salary = salary;
+        this.car = car;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Employee {" +
+                "name = " + name +
+                ", surname = " + surname +
+                ", department = " + department +
+                // ", age = " + age +
+                ", salary = " + salary +
+                ", car = " + car +
+                '}';
+    }
+}
+
+public class SerializationPart2 { // сериализация
+    public static void main(String[] args) {
+        Car car = new Car("Nissan", "white");
+
+        // Employee employee = new Employee("Mariya", "IT", 28, 500, car);
+        Employee employee = new Employee("Mariya", "Ivanova", "IT" , 500, car); // добавлена фамилия и удален возраст
+
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("employee_output2.bin"))) {
+            outputStream.writeObject(employee);
+            System.out.println("Done!");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Программист, который будет десериализировать:
 class Employee implements Serializable { // Первая версия класса Employee
     static final long serialVersionUID = 1;
     String name;
@@ -306,58 +357,6 @@ class Employee implements Serializable { // Первая версия класс
                 '}';
     }
 }
-
-// public class SerializationPart2 { // сериализация
-//     public static void main(String[] args) {
-//         Car car = new Car("Nissan", "white");
-
-//         // Employee employee = new Employee("Mariya", "IT", 28, 500, car); // Первая версия класса Employee
-//         Employee employee = new Employee("Mariya", "Ivanova", "IT" , 500, car);  // Вторая версия класса Employee
-
-//         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("employee_output2.bin"))) {
-//             outputStream.writeObject(employee);
-//             System.out.println("Done!");
-
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//     }
-// }
-
-// Второй программист:
-// class Employee implements Serializable { // Вторая версия класса Employee
-//     static final long serialVersionUID = 2;
-//     String name;
-//     String surname;
-//     String department;
-//     // int age;
-//     transient double salary;
-//     Car car;
-
-//     public Employee(String name, String surname, String department,
-//     // int age,
-//     double salary, Car car) {
-//         this.name = name;
-//         this.surname = surname;
-//         this.department = department;
-//         // this.age = age;
-//         this.salary = salary;
-//         this.car = car;
-
-//     }
-
-//     @Override
-//     public String toString() {
-//         return "Employee {" +
-//                 "name = " + name +
-//                 ", surname = " + surname +
-//                 ", department = " + department +
-//                 // ", age = " + age +
-//                 ", salary = " + salary +
-//                 ", car = " + car +
-//                 '}';
-//     }
-// }
 
 public class SerializationPart2 { // десериализация
     public static void main(String[] args) {
@@ -416,7 +415,59 @@ local class serialVersionUID = 1
 В сериализируемом классе необходимо использовать serialVersionUID для обозначения версии класса.
 */
 
-// Первый программист:
+// Программист, который изменил класс и будет сериализировать:
+//class Employee implements Serializable {
+//    static final long serialVersionUID = 2;
+//    String name;
+//    String surname;
+//    String department;
+//    // int age;
+//    transient double salary;
+//    Car car;
+//
+//    public Employee(String name, String surname, String department,
+//                    // int age,
+//                    double salary, Car car) {
+//        this.name = name;
+//        this.surname = surname;
+//        this.department = department;
+//        // this.age = age;
+//        this.salary = salary;
+//        this.car = car;
+//
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Employee {" +
+//                "name = " + name +
+//                ", surname = " + surname +
+//                ", department = " + department +
+//                // ", age = " + age +
+//                ", salary = " + salary +
+//                ", car = " + car +
+//                '}';
+//    }
+//}
+//
+//public class SerializationPart2 { // сериализация
+//    public static void main(String[] args) {
+//        Car car = new Car("Nissan", "white");
+//
+//        // Employee employee = new Employee("Mariya", "IT", 28, 500, car);
+//        Employee employee = new Employee("Mariya", "Ivanova", "IT" , 500, car); // добавлена фамилия и удален возраст
+//
+//        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("employee_output2.bin"))) {
+//            outputStream.writeObject(employee);
+//            System.out.println("Done!");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}
+
+// Программист, который будет десериализировать:
 class Employee implements Serializable { // Первая версия класса Employee
     static final long serialVersionUID = 1;
     String name;
@@ -446,75 +497,23 @@ class Employee implements Serializable { // Первая версия класс
     }
 }
 
-// public class SerializationPart2 { // сериализация
-//     public static void main(String[] args) {
-//         Car car = new Car("Nissan", "white");
-//
-//         // Employee employee = new Employee("Mariya", "IT", 28, 500, car); // Первая версия класса Employee
-//         Employee employee = new Employee("Mariya", "Ivanova", "IT" , 500, car);  // Вторая версия класса Employee
-//
-//         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("employee_output2.bin"))) {
-//             outputStream.writeObject(employee);
-//             System.out.println("Done!");
-//
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//     }
-// }
+public class SerializationPart2 { // десериализация
+    public static void main(String[] args) {
+        Employee employee;
 
-// Второй программист:
-// class Employee implements Serializable { // Вторая версия класса Employee
-//     static final long serialVersionUID = 2;
-//     String name;
-//     String surname;
-//     String department;
-//     // int age;
-//     transient double salary;
-//     Car car;
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("employee_output2.bin"))) {
+            employee = (Employee)inputStream.readObject();
+            System.out.println(employee);
 
-//     public Employee(String name, String surname, String department,
-//     // int age,
-//     double salary, Car car) {
-//         this.name = name;
-//         this.surname = surname;
-//         this.department = department;
-//         // this.age = age;
-//         this.salary = salary;
-//         this.car = car;
-
-//     }
-
-//     @Override
-//     public String toString() {
-//         return "Employee {" +
-//                 "name = " + name +
-//                 ", surname = " + surname +
-//                 ", department = " + department +
-//                 // ", age = " + age +
-//                 ", salary = " + salary +
-//                 ", car = " + car +
-//                 '}';
-//     }
-// }
-
-//public class SerializationPart2 { // десериализация
-//    public static void main(String[] args) {
-//        Employee employee;
-//
-//        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("employee_output2.bin"))) {
-//            employee = (Employee)inputStream.readObject();
-//            System.out.println(employee);
-//
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//}
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 class Car implements Serializable {
     String model;

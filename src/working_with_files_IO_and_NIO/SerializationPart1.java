@@ -373,66 +373,66 @@ Employees {name = Mariya, department = IT, age = 28, salary = 0.0, car = Car {mo
 //     }
 // }
 
-class Employee implements Serializable {
-    String name;
-    String department;
-    int age;
-    double salary;
-    Car car;
+//class Employee implements Serializable {
+//    String name;
+//    String department;
+//    int age;
+//    double salary;
+//    Car car;
+//
+//    public Employee(String name, String department, int age, double salary, Car car) {
+//        this.name = name;
+//        this.department = department;
+//        this.age = age;
+//        this.car = car;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "Employees {" +
+//                "name = " + name +
+//                ", department = " + department +
+//                ", age = " + age +
+//                ", salary = " + salary +
+//                ", car = " + car +
+//                '}';
+//    }
+//}
 
-    public Employee(String name, String department, int age, double salary, Car car) {
-        this.name = name;
-        this.department = department;
-        this.age = age;
-        this.car = car;
-    }
+//class Car implements Serializable {
+//    String model;
+//    String color;
+//
+//    public Car(String model, String color) {
+//        this.model = model;
+//        this.color = color;
+//    }
+//
+//    public String toString() {
+//        return "Car {" +
+//                "model = " +
+//                ", color = " +
+//                '}';
+//    }
+//}
 
-    @Override
-    public String toString() {
-        return "Employees {" +
-                "name = " + name +
-                ", department = " + department +
-                ", age = " + age +
-                ", salary = " + salary +
-                ", car = " + car +
-                '}';
-    }
-}
-
-class Car implements Serializable {
-    String model;
-    String color;
-
-    public Car(String model, String color) {
-        this.model = model;
-        this.color = color;
-    }
-
-    public String toString() {
-        return "Car {" +
-                "model = " +
-                ", color = " +
-                '}';
-    }
-}
-
-public class SerializationPart1 { // сериализация
-    public static void main(String[] args) {
-        Car car = new Car("Nissan", "white");
-        Employee employee = new Employee("Mariya", "IT", 28, 500, car);
-
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("employee_output.bin"))) {
-
-            outputStream.writeObject(employee);
-            System.out.println("Done!");
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
+//public class SerializationPart1 { // сериализация
+//    public static void main(String[] args) {
+//        Car car = new Car("Nissan", "white");
+//        Employee employee = new Employee("Mariya", "IT", 28, 500, car);
+//
+//        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("employee_output.bin"))) {
+//
+//            outputStream.writeObject(employee);
+//            System.out.println("Done!");
+//
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}
 
 // public class SerializationPart1 { // десериализация
 //     public static void main(String[] args) {
