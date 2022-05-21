@@ -54,7 +54,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.RandomAccessFileExample">
+  <component name="RunManager" selected="Application.FileExample">
     <configuration name="DataInputStreamAndDataOutputStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.DataInputStreamAndDataOutputStream" />
       <module name="blackBeltJava" />
@@ -68,8 +68,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileInputStreamAndFileOutputStream" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.FileInputStreamAndFileOutputStream" />
+    <configuration name="FileExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.FileExample" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -122,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FileExample" />
         <item itemvalue="Application.RandomAccessFileExample" />
         <item itemvalue="Application.SerializationPart2" />
         <item itemvalue="Application.SerializationPart1" />
         <item itemvalue="Application.DataInputStreamAndDataOutputStream" />
-        <item itemvalue="Application.FileInputStreamAndFileOutputStream" />
       </list>
     </recent_temporary>
   </component>
