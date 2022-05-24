@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/ChannelBufferExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/ChannelBufferExample.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,8 +79,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RandomAccessFileExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.RandomAccessFileExample" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.Main" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -93,8 +92,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SerializationPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.SerializationPart1" />
+    <configuration name="RandomAccessFileExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.RandomAccessFileExample" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -122,10 +121,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.ChannelBufferExample" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.FileExample" />
         <item itemvalue="Application.RandomAccessFileExample" />
         <item itemvalue="Application.SerializationPart2" />
-        <item itemvalue="Application.SerializationPart1" />
       </list>
     </recent_temporary>
   </component>
