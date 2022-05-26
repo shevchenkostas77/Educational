@@ -404,39 +404,208 @@ But I, being poor, have only my dreams;
 I have spread my dreams under your feet;
 Tread softly because you tread on my dreams.
 					William Butler Yeats
+
+Задание-пример.
+Необходимо дополнить файл "forChannelBufferExample.txt" цитатой Альберта Эйнштейна "There are only two ways to live your
+life. One is as though nothing is a miracle. The other is as though everything is a miracle." используя Channel и
+Buffer.
+Цитата будет помещена в переменную text типа String:
+
+        String text = "\nThere are only two ways to live your life." +
+                    " One is as though nothing is a miracle. The other is as " +
+                    "though everything is a miracle.";
+
+Для записи информации в файл будет создан новый буфер, а Channel будет прежним. Это будет доказетельство того, что
+Channel можно использовать как для записи в файл, так и для чтения из него. Буфер будет создан таким размером, чтобы
+цитата в него сразу вместилась целиком. Такой буфер можно создать двумя способами:
+
+        1-ый способ:
+        ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length);
+
+Т.е. 1-ым способом цитата переводится в массив байтов при помощи метода getBytes и вычисляется длина массива (length).
+Буфер создался конкретно под эту цитату. При помощи метода put цитата будет добавлена в буфер:
+
+        bufferForWrite.put(text.getBytes());
+
+Чтобы прочитать из буфера необходимо вызвать метод flip:
+
+        bufferForWrite.flip();
+
+Чтобы Channel прочитал информацию из буфера и после записал в файл:
+
+        channel.write(bufferForWrite);
+
+Код:
+
+public class ChannelBufferExample {
+    public static void main(String[] args) {
+        try (RandomAccessFile file = new RandomAccessFile("forChannelBufferExample.txt", "rw");
+             FileChannel channel = file.getChannel();) {
+
+            ByteBuffer buffer = ByteBuffer.allocate(25);
+            StringBuilder verse = new StringBuilder();
+
+            int byteRead = channel.read(buffer);
+            while (byteRead > 0) {
+                System.out.println("How many bytes were read from " +
+                        "the file and written to the buffer?: " + byteRead +
+                        " bytes;");
+
+                buffer.flip();
+
+                while (buffer.hasRemaining()) {
+                    verse.append((char) buffer.get());
+                }
+                buffer.clear();
+                byteRead = channel.read(buffer);
+            }
+            System.out.println(verse);
+
+            // Цитата Альберта Эйнштейна
+            String text = "\nThere are only two ways to live your life." +
+                    " One is as though nothing is a miracle. \nThe other is as " +
+                    "though everything is a miracle.";
+
+            ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length);
+            bufferForWrite.put(text.getBytes());
+            bufferForWrite.flip();
+            channel.write(bufferForWrite);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Содержимое файла "forChannelBufferExample.txt":
+Had I the heavens' embroidered cloths,
+Enwrought with golden and silver light,
+The blue and the dim and the dark cloths
+Of night and light and the half-light,
+I would spread the cloths under your feet:
+But I, being poor, have only my dreams;
+I have spread my dreams under your feet;
+Tread softly because you tread on my dreams.
+					William Butler Yeats
+There are only two ways to live your life. One is as though nothing is a miracle.
+The other is as though everything is a miracle.
+
+2-ой способ создания буфера.
+Создается буфер:
+
+         ByteBuffer bufferForWrite2 = ByteBuffer.wrap(text.getBytes());
+
+И после информация записывается из буфера в файл:
+
+        channel.write(bufferForWrite2);
+
+Этот второй способ более эллегантый. Метод wrap сразу записывает информацию из тектса в буфер, т.е. как в 1-ом способе
+не нужно указывать размер буфера ( ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length); ), не нужно
+записывать в буфер информацию ( bufferForWrite.put(text.getBytes()); ) и более того, не нужно вызыватьметод flip
+( bufferForWrite.flip(); ) чтобы position изменить на 0. Все эти вещи делает метод wrap. Метод wrap и записывает
+информацию сразу в буфер из текста переведенного в массив байтов, соответствено этому размеру он создает необходимой
+вместительности (capacity) буфер и сам делате flip. После чего остается записать, с помошью канала, информацию
+из этого буфера.
+
+Код:
+
+public class ChannelBufferExample {
+    public static void main(String[] args) {
+        try (RandomAccessFile file = new RandomAccessFile("forChannelBufferExample.txt", "rw");
+             FileChannel channel = file.getChannel();) {
+
+            ByteBuffer buffer = ByteBuffer.allocate(25);
+            StringBuilder verse = new StringBuilder();
+
+            int byteRead = channel.read(buffer);
+            while (byteRead > 0) {
+                System.out.println("How many bytes were read from " +
+                        "the file and written to the buffer?: " + byteRead +
+                        " bytes;");
+
+                buffer.flip();
+
+                while (buffer.hasRemaining()) {
+                    verse.append((char) buffer.get());
+                }
+                buffer.clear();
+                byteRead = channel.read(buffer);
+            }
+            System.out.println(verse);
+
+            // Цитата Альберта Эйнштейна
+            String text = "\nThere are only two ways to live your life." +
+                    " One is as though nothing is a miracle. \nThe other is as " +
+                    "though everything is a miracle.";
+
+//            ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length);
+//            bufferForWrite.put(text.getBytes());
+//            bufferForWrite.flip();
+//            channel.write(bufferForWrite);
+
+            ByteBuffer bufferForWrite2 = ByteBuffer.wrap(text.getBytes());
+            channel.write(bufferForWrite2);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Содержимое файла "forChannelBufferExample.txt":
+Had I the heavens' embroidered cloths,
+Enwrought with golden and silver light,
+The blue and the dim and the dark cloths
+Of night and light and the half-light,
+I would spread the cloths under your feet:
+But I, being poor, have only my dreams;
+I have spread my dreams under your feet;
+Tread softly because you tread on my dreams.
+					William Butler Yeats
+There are only two ways to live your life. One is as though nothing is a miracle.
+The other is as though everything is a miracle.
  */
 
 public class ChannelBufferExample {
     public static void main(String[] args) {
         try (RandomAccessFile file = new RandomAccessFile("forChannelBufferExample.txt", "rw");
-             FileChannel channel = file.getChannel();) { // создается канал
+             FileChannel channel = file.getChannel();) {
 
-            ByteBuffer buffer = ByteBuffer.allocate(25); // создан буфер с вместимостью 25 байт
+            ByteBuffer buffer = ByteBuffer.allocate(25);
+            StringBuilder verse = new StringBuilder();
 
-            StringBuilder verse = new StringBuilder(); // Кусочки стиха будут записаны в StringBuilder
-
-            // Читается информация из файла с помощью channel-a и записывается в буфер
-            int byteRead = channel.read(buffer); // первый раз читается информация из файла в буфер
-            // метод read возвращает количество прочитанных байт
-            // Естественно, за один раз весь текст стиха не уместиться в буфер размером в 25 байт, поэтому необходимо
-            // поместить это в цикл и читать до тех пор, пока есть что читать
-            while (byteRead > 0) { // когда byteRead будет равен нулю, то читать уже нечего
+            int byteRead = channel.read(buffer);
+            while (byteRead > 0) {
                 System.out.println("How many bytes were read from " +
                         "the file and written to the buffer?: " + byteRead +
-                        " bytes;"); // каждый раз выводится на экран кол-во прочитанных байт
+                        " bytes;");
 
-                buffer.flip(); // Flip с англ. кувырок или сальто
+                buffer.flip();
 
-                while (buffer.hasRemaining()) { // hasRemaining - пока в буфере есть что читать,
-
-                    verse.append((char) buffer.get()); // метод get читает по 1 байту.
-                    // позиция каждый раз смещается и приближается к концу буфера
+                while (buffer.hasRemaining()) {
+                    verse.append((char) buffer.get());
                 }
                 buffer.clear();
                 byteRead = channel.read(buffer);
             }
+            System.out.println(verse);
 
-            System.out.println(verse); // стихотворение выводится на экран
+            // Цитата Альберта Эйнштейна
+            String text = "\nThere are only two ways to live your life." +
+                    " One is as though nothing is a miracle. \nThe other is as " +
+                    "though everything is a miracle.";
+
+//            ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length);
+//            bufferForWrite.put(text.getBytes());
+//            bufferForWrite.flip();
+//            channel.write(bufferForWrite);
+
+            ByteBuffer bufferForWrite2 = ByteBuffer.wrap(text.getBytes());
+            channel.write(bufferForWrite2);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
