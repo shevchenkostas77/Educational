@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forChannelBufferExample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/forChannelBufferExample.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/working_with_files_IO_and_NIO/ChannelBufferExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/working_with_files_IO_and_NIO/ChannelBufferExample.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/ChannelBufferExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/ChannelBufferExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/ChannelBufferExample2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/ChannelBufferExample2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +56,22 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ChannelBufferExample">
+  <component name="RunManager" selected="Application.ChannelBufferExample2">
     <configuration name="ChannelBufferExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.ChannelBufferExample" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="working_with_files_IO_and_NIO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChannelBufferExample2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.ChannelBufferExample2" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -107,26 +122,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SerializationPart2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.SerializationPart2" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="working_with_files_IO_and_NIO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChannelBufferExample2" />
         <item itemvalue="Application.ChannelBufferExample" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.FileExample" />
         <item itemvalue="Application.RandomAccessFileExample" />
-        <item itemvalue="Application.SerializationPart2" />
       </list>
     </recent_temporary>
   </component>

@@ -599,9 +599,9 @@ public class ChannelBufferExample {
                     " One is as though nothing is a miracle. \nThe other is as " +
                     "though everything is a miracle.";
 
-//            ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length);
-//            bufferForWrite.put(text.getBytes());
-//            bufferForWrite.flip();
+            ByteBuffer bufferForWrite = ByteBuffer.allocate(text.getBytes().length);
+            bufferForWrite.put(text.getBytes());
+            bufferForWrite.flip();
 //            channel.write(bufferForWrite);
 
             ByteBuffer bufferForWrite2 = ByteBuffer.wrap(text.getBytes());
