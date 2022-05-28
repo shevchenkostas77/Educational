@@ -28,13 +28,13 @@ WindowsPath, UnixPath и тд.
         Path directory = Paths.get("/Users/MisterX/Desktop/"); // Путь к директории
 
 Используя класс Paths (буква s на конце) и его метод get (с англ. получить), в параметре метода указывается адрес файла
-или директории к которым необходимо будет обратиться, метод get возвращает путь (объект класса-наследника интерфейса
-Path).
+или директории к которым необходимо будет обратиться, метод get возвращает путь (объект класса имплементирующий
+интерфейс Path).
 Невозможно создать объект типа Path с помощью кода вида new Path().
 
-Файл или директория не обязаны существовать, чтобы мог существовать валидный объект типа Path. Может вы только хотите
-создать файл... Объект типа Path — это как продвинутая версия типа String — он не привязан к конкретному файлу на диске:
-он просто хранит некий путь на диске и все.
+Файл или директория не обязаны существовать, чтобы мог существовать валидный объект типа Path. Может файл или директория
+будут созданы позже... Объект типа Path не привязан к конкретному файлу на диске: он просто хранит некий путь на диске
+и все.
 
 Path нужно импортировать - import java.nio.file.Path;
 Paths нужно импортировать - import java.nio.file.Paths;
@@ -58,7 +58,7 @@ public class InterfacePathAndClassFilesPart1 {
 filePath: testFileForPathAndFiles.txt
 directoryPath: testDirectoryForPathAndFiles
 
-Имя в директории является последним элементом в абсолютном пути
+Имя директории является последним элементом в абсолютном пути
 /Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles (абсолютный путь к директории testDirectoryForPathAndFiles)
 /Users/shevchenkostas77/Desktop/ --> testDirectoryForPathAndFiles <-- (последний элемент)
 
@@ -85,7 +85,7 @@ directoryPath: /Users/shevchenkostas77/Desktop
 выводится абсолютный путь к Desktop-у.
 
 Метод getRoot.
-Возвращает "корень" от куда берет начало файл или директория.
+Возвращает корневую директорию от куда берет начало файл или директория.
 
 Код:
 
@@ -126,7 +126,7 @@ filePath: false
 directoryPath: true
 
 Метод toAbsolutePath.
-Возвращает абсолютный адрес.
+Преобразует путь в абсолютный
 
 Код:
 
@@ -145,7 +145,7 @@ filePath: /Users/shevchenkostas77/IdeaProjects/blackBeltJava/testFileForPathAndF
 directoryPath: /Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles
 
 Объединив методы toAbsolutePath и getParent можно узнать Path родителя файла или директории, если был указан
-относительный адрес при создании объекта Path.
+относительный путь при создании объекта типа Path.
 
 Код:
 
@@ -164,7 +164,7 @@ filePath: /Users/shevchenkostas77/IdeaProjects/blackBeltJava
 directoryPath: /Users/shevchenkostas77/Desktop
 
 Метод resolve.
-Данный метод объединяет два пути в один.
+Данный метод объединяет два пути в один, т.е. строит новый абсолютный путь из абсолютного и относительного.
 
 Код:
 
@@ -185,7 +185,7 @@ Concatenation directoryPath and filePath:
 о путях, а не самих файлах и директориях.
 
 Метод relativize.
-Возвращает относительный путь.
+Возвращает относительный путь из двух абсолютных путей.
 Для наглядности примера, необходимо создать еще один путь с абсолютным адресом, к примеру:
 
         Path anotherPath = Paths.get("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles" +
