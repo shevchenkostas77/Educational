@@ -1,7 +1,9 @@
 package working_with_files_IO_and_NIO;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.Map;
 
 
 /*
@@ -25,7 +27,7 @@ WindowsPath, UnixPath и тд.
 использую MacOS):
 
         Path path = Paths.get("file.txt"); // Путь к файлу
-        Path directory = Paths.get("/Users/MisterX/Desktop/"); // Путь к директории
+        Path directory = Paths.get("/Users/MisterX/Desktop/MyFolder"); // Путь к директории
 
 Используя класс Paths (буква s на конце) и его метод get (с англ. получить), в параметре метода указывается адрес файла
 или директории к которым необходимо будет обратиться, метод get возвращает путь (объект класса имплементирующий
@@ -40,7 +42,8 @@ Path нужно импортировать - import java.nio.file.Path;
 Paths нужно импортировать - import java.nio.file.Paths;
 
 Метод getFileName.
-Возвращает имя файла или директории, которые расположены на данном пути.
+Возвращает имя файла или директории, которые расположены на данном пути, т.е.  возвращает одно имя файла или
+директории — то, что идет после последнего разделителя.
 
 Код:
 
@@ -58,12 +61,13 @@ public class InterfacePathAndClassFilesPart1 {
 filePath: testFileForPathAndFiles.txt
 directoryPath: testDirectoryForPathAndFiles
 
-Имя директории является последним элементом в абсолютном пути
-/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles (абсолютный путь к директории testDirectoryForPathAndFiles)
+Имя в директории является последним элементом в абсолютном пути
+/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles (абсолютный путь к папке testDirectoryForPathAndFiles)
 /Users/shevchenkostas77/Desktop/ --> testDirectoryForPathAndFiles <-- (последний элемент)
 
 Метод getParent.
-Возвращает родителя файла или директории.
+Возвращает родителя файла или директории, т.е. возвращает путь, который указывает на родительскую директорию для
+текущего пути. Независимо от того, был этот путь директорией или файлом.
 
 Код:
 
@@ -103,8 +107,8 @@ public class InterfacePathAndClassFilesPart1 {
 filePath: null
 directoryPath: /
 
-У filePath root - null, т.к. путь указан относительный, а у directoryPath - жесткий диск (на ОС Windows возможный
-вариант вывода: C:\ (диск С))
+У filePath корневая директория - null, т.к. путь указан относительный, а у directoryPath - жесткий диск (в ОС Windows
+возможный вариант вывода: C:\ (диск С)).
 
 Метод isAbsolute.
 Возвращает true или false, в зависимости указан абсолютный путь или нет.
@@ -126,7 +130,7 @@ filePath: false
 directoryPath: true
 
 Метод toAbsolutePath.
-Преобразует путь в абсолютный
+Преобразует путь в абсолютный.
 
 Код:
 
@@ -144,8 +148,8 @@ public class InterfacePathAndClassFilesPart1 {
 filePath: /Users/shevchenkostas77/IdeaProjects/blackBeltJava/testFileForPathAndFiles.txt
 directoryPath: /Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles
 
-Объединив методы toAbsolutePath и getParent можно узнать Path родителя файла или директории, если был указан
-относительный путь при создании объекта типа Path.
+Объединив методы toAbsolutePath и getParent можно узнать родителя файла или директории, если был указан относительный
+путь при создании объекта типа Path (как в данном случае с filePath).
 
 Код:
 
@@ -185,8 +189,9 @@ Concatenation directoryPath and filePath:
 о путях, а не самих файлах и директориях.
 
 Метод relativize.
-Возвращает относительный путь из двух абсолютных путей.
-Для наглядности примера, необходимо создать еще один путь с абсолютным адресом, к примеру:
+Возвращает относительный путь из двух абсолютных путей, т.е. позволяет вычислить «разницу путей»: один путь
+относительно другого.
+Для наглядности примера, необходимо создать еще один путь с абсолютным путем, к примеру:
 
         Path anotherPath = Paths.get("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles" +
                 "/newFolderM/newFolderN/newFileTest.txt");
@@ -216,18 +221,220 @@ newFolderM/newFolderN/newFileTest.txt
 Т.е. вывелся на экран относительный путь: /newFolderM/newFolderN/newFileTest.txt
 абсолютного пути: /Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles/newFolderM/newFolderN/newFileTest.txt
 
+Класс Files.
 Класс Files это utility класс, который содержит много очень полезных статических методов для работы с файлами и
-директориями.
- */
+директориями (нужен импорт import java.nio.file.Files). Все методы этого класса работают с объектами типа Path.
+
+Метод exists.
+Проверяет существование файла / директории. Возвращает true или false.
+
+Код:
 
 public class InterfacePathAndClassFilesPart1 {
     public static void main(String[] args) {
         Path filePath = Paths.get("testFileForPathAndFiles.txt");
         Path directoryPath = Paths.get("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles");
 
-        Path anotherPath = Paths.get("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles" +
-                "/newFolderM/newFolderN/newFileTest.txt");
+        System.out.println("does the file exist?: " + Files.exists(filePath));
+        System.out.println("does the folder exist?: " + Files.exists(directoryPath));
+    }
+}
 
-        System.out.println(directoryPath.relativize(anotherPath));
+Запуск программы. Вывод на экран:
+does the file exist?: false
+does the folder exist?: true
+
+Методы createFile, createDirectory и createDirectories.
+Все три метода выбрасывают исключения IOException, нужен импорт exception - import java.io.IOException;
+createFile - создает новый файл;
+createDirectory - создает новую директорию;
+createDirectories - создает директорию и все нужные поддиректории, если их не существует;
+
+Код:
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("testFileForPathAndFiles.txt");
+        Path directoryPath = Paths.get("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles");
+        Path directoriesPath = Paths.get("/Users/shevchenkostas77/Desktop/folderM/folderN/folderN");
+
+        if (!Files.exists(filePath)) {
+            try {
+                Files.createFile(filePath);
+                System.out.println("File has been created");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!Files.exists(directoryPath)) {
+            try {
+                Files.createDirectory(directoryPath);
+                System.out.println("Directory has been created");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (!Files.exists(directoriesPath)) {
+            try {
+                Files.createDirectories(directoriesPath);
+                System.out.println("All directories has been created");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+File has been created
+All directories has been created
+
+На рабочем столе создалась папка folderM с подпапкой folderN и в папке folderN создалась подпапка folderO.
+
+Методы isReadable, isWriteable и isExecutable.
+isReadable - возвращает true или false в зависимости от того, если ли доступ к чтению файла;
+isWritable - возвращает true или false в зависимости от того, если ли доступ к записи в файл;
+isExecutable - возвращает true или false в зависимости от того, если ли доступ к выполнению файла, т.е. запуску файла;
+
+Код:
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("testFileForPathAndFiles.txt");
+        Path directoryPath = Paths.get("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles");
+
+        System.out.println("Have read access to the file? Answer: " + Files.isReadable(filePath));
+        System.out.println("Have write access to the file? Answer: " + Files.isWritable(filePath));
+        System.out.println("Have access to run the file? Answer: " + Files.isExecutable(filePath));
+    }
+}
+
+Запуск программы. Вывод на экран:
+Have read access to the file? Answer: true
+Have write access to the file? Answer: true
+Have access to run the file? Answer: true
+
+Метод isSameFile.
+Метод проверяет ссылаются ли оба пути указанные в параметрах метода на один и тот же файл. Метод isSameFile выбрасывает
+исключение - IOException.
+
+Код:
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("testFileForPathAndFiles.txt"); // относительный путь к файлу
+        Path filePathCopy = Paths.get("/Users/shevchenkostas77/IdeaProjects/" +
+                "blackBeltJava/testFileForPathAndFiles.txt"); // абсолютный путь к файлу
+        try {
+            System.out.println("Do two paths point to the same file? Answer: " +
+                    Files.isSameFile(filePath, filePathCopy));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Do two paths point to the same file? Answer: true
+
+Метод size.
+Возвращает размер файла (long). Метод size выбрасывает исключение - IOException.
+
+Код:
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("testFileForPathAndFiles.txt");
+        try {
+            System.out.println("What is the file size? Answer: " + Files.size(filePath) + " bytes");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+What is the file size? Answer: 14 bytes
+
+Размер файла "testFileForPathAndFiles.txt" - 14 байт, т.к. файл содержит фразу "Hello World!!!".
+
+Метод getAttribute.
+Метод возвращает информацию о каком-то атрибуте. В параметрах метода первым параметром указывается путь к файлу или к
+директории, вторым параметром указывается в виде String атрибут, например creationTime или size (название атрибута
+ВАЖНО писать без ошибок!).
+Метод getAttribute выбрасывает исключение - IOException.
+
+Код:
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Paths.get("testFileForPathAndFiles.txt");
+        Path directoryPath = Path.of("/Users/shevchenkostas77/Desktop/testDirectoryForPathAndFiles");
+
+        try {
+            System.out.println("When was the file created? Answer: " +
+                    Files.getAttribute(filePath, "creationTime"));
+            System.out.println("When was the directory created? Answer: " +
+                    Files.getAttribute(directoryPath, "creationTime"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+When was the file created? Answer: 2022-05-29T11:55:32Z
+When was the directory created? Answer: 2022-05-28T14:47:37Z
+
+Если необходимо рассмотреть все базовые атрибуты, то можно воспользоваться методом readAttributes. В параметрах метода
+первым параметром указывается путь к файлу или директории (чьи атрибуты будем читать), вторым параметром можно указать
+название атрибутов или же в двойных кавычках указать знак "Звездочка" - "*". Метод readAttributes возвращает объект
+тима Map, где ключом служит объект типа String, а значением - Object.
+Метод readAttributes выбрасывает исключение - IOException.
+
+Код:
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Path.of("testFileForPathAndFiles.txt");
+
+        try {
+            Map<String, Object> attributes = Files.readAttributes(filePath, "*");
+            for (Map.Entry<String, Object> entry : attributes.entrySet()) {
+                System.out.println(entry.getKey() + ":" + entry.getValue());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+lastAccessTime:2022-05-29T16:12:54Z
+lastModifiedTime:2022-05-29T16:12:54Z
+size:14
+creationTime:2022-05-29T11:55:32Z
+isSymbolicLink:false
+isRegularFile:true
+fileKey:(dev=1000003,ino=24276540)
+isOther:false
+isDirectory:false
+
+ */
+
+public class InterfacePathAndClassFilesPart1 {
+    public static void main(String[] args) {
+        Path filePath = Path.of("testFileForPathAndFiles.txt");
+
+        try {
+            Map<String, Object> attributes = Files.readAttributes(filePath, "*");
+            for (Map.Entry<String, Object> entry : attributes.entrySet()) {
+                System.out.println(entry.getKey() + ":" + entry.getValue());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
