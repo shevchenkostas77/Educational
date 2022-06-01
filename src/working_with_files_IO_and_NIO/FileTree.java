@@ -1,11 +1,11 @@
 package working_with_files_IO_and_NIO;
 
-import java.nio.file.FileVisitor;
-import java.nio.file.Path;
-import java.nio.file.FileVisitResult;
 import java.io.IOException;
-import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.attribute.BasicFileAttributes;
 
 /*
 Метод класса Files walkFileTree.
@@ -24,7 +24,7 @@ import java.nio.file.Files;
 начнется "прогулка" по дереву файлов. Вторым параметром этого метода должен быть объект класса имплементирующий
 интерфейс FileVisitor. FileVisitor - это интерфейс, имплементируя который, будет описана вся логика обхода дерева
 файлов (т.е. что нужно делать программе, когда работа происходит с тем или иным файлом, или директорией).
-Нужен импорт FileVisitor - import java.nio.file.FileVisitor;
+Нужен импорт FileVisitor - import java.nio.file.FileVisitor; Метод walkFileTree выбрасывает исключение - IOException.
 
 Логика обхода дерева файлов заключается в классе, имплементирующем интерфейс FileVisitor.
 Интерфейс FileVisitor содержит 4 метода:
@@ -88,22 +88,29 @@ FileVisitResult это enum класс и он содержит 4 значени
             SKIP_SUBTREE,
             SKIP_SIBLINGS;
             }
-Когда произошел вход в первую директорию, перед тем как произошла работа со всем содержимым данной директории,
-вызывается метод preVisitDirectory. После вызова этого метода и срабатывания кода, который в теле этого метода, мы
-должны сказать программе, что ей делать дальше и у нас есть 4 варианта, что мы можем делать дальше.
+
+После входа в директорию, перед работой с ее содержимым вызывается метод preVisitDirectory. После того как в методе
+будут выполнена вся логика метода последней инструкцией в методе должен быть return, этот return должен сообщить
+программе, что ей нужно делать дальше. И для этого есть 4-е варианта, которые предлагает класс FileVisitResult.
+
 Значения FileVisitResult:
-1. CONTINUE - означает, что нужно продолжить обход по файлам;
-2. TERMINATE - означает, что нужно немедленно прекратить обход по файлам. Например, ищем какой-то файл, нашли искомый
-файл и дальше гулять по файловому дереву не будем, смысла нет, мы уже нашли наш файл;
+
+1. CONTINUE - означает что нужно продолжить обход по файлам;
+2. TERMINATE - означает что нужно немедленно прекратить обход по файлам. Например, необходимо найти какой-то файл, он
+   был найден. Дальше "гулять" по файловому дереву нет смысла, т.к. искомый файл уже найден.
 3. SKIP_SUBTREE - означает, что в данную директорию заходить не нужно;
-4. SKIP_SIBLINGS - означает, что в данной директории продолжать обход по файлам не нужно. Sibling с англ. брат или
-сестра, в данном примере sibling для папки "Y1" это папки  "Y2" и "Z". Или, еще пример, sibling для файла "test2.txt"
-папка "О", "test1.txt" и "test3.txt"; Когда можно использовать SKIP_SIBLINGS? Например, когда зашли внутрь директории,
-к примеру, "Y1", изучили директорию "О", "прогулялись по ней", и файл "test1.txt". После изучения файла "test1.txt"
-возвращаем SKIP_SIBLINGS, это означает, что больше в директории "Y1" ничего исследовать не нужно, файлы "test2.txt" и
-"test3.txt" можно пропустить и двигаться дальше.
-После того, как мы выводим информацию о нашей директории, естественно, мы хотим продолжить гуляение по нашему файловому
-дереву и мы возвращаем в методе return FileVisitResult.CONTINUE; Чтобы мы продолжали иследовать наши файлы и директории:
+4. SKIP_SIBLINGS - означает, что в данной директории продолжать обход по файлам не нужно.
+   Sibling с англ. брат или сестра, в данном примере sibling для папки "Y1" это папки  "Y2" и "Z". Sibling для файла
+   "test2.txt" папка "О", "test1.txt" и "test3.txt";
+
+Когда нужно использовать SKIP_SIBLINGS?
+Например, когда зашли внутрь директории, к примеру, "Y1", изучили директорию "О" ("прогулялись" по ней) и файл
+"test1.txt". После изучения файла "test1.txt" возвращается SKIP_SIBLINGS, это означает, что больше в директории "Y1"
+ничего исследовать не нужно, файлы "test2.txt" и "test3.txt" можно пропустить и двигаться дальше.
+
+В задании говорится, что нужно вывести на экран всю информацию о файлах и папках директории "Х", поэтому после входа в
+директорию "Х" и в последующие папки нужно будет дальше продолжить исследовать файлы и директории, для этого в return
+будет указано FileVisitResult.CONTINUE:
 
         @Override
         public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
@@ -111,8 +118,9 @@ FileVisitResult это enum класс и он содержит 4 значени
             return FileVisitResult.CONTINUE;
         }
 
-Когда исследуется какой-то файл (метод visitFile) будет выводится информация о имени дальше и зададим в теле метода
-инструкцию о продолжении работы:
+В методе visitFile тоже будет прописана логика, что и в методе preVisitDirectory, т.е. когда исследуется какой-то файл
+будет выводиться на экран информация об имени исследуемого файла. После исследования файла работа продолжится
+(return FileVisitResult.CONTINUE;):
 
         @Override
         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -120,17 +128,79 @@ FileVisitResult это enum класс и он содержит 4 значени
             return FileVisitResult.CONTINUE;
         }
 
-В методе postVisitDirectory будет выводиться информация о том, что мы выходим из директории и продолжаем работу:
+Метод postVisitDirectory будет выводить информация о том, что программа вышла из очередной директории и работа
+продолжится дальше:
 
         @Override
-        public FileVisitResult postVizitResult(Path dir, BasicFileAttributes attrs) throws IOException {
+        public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
             System.out.println("Exit from directory " + dir);
             return FileVisitResult.CONTINUE;
         }
 
-В методе visitFileFailed если буде какая-то ошибка при изучении файла можно выводить на экран сообение
-"Error while visiting file" и давайте, если какая-то такая ошибка вылазит, т.е. у нас нет доступа на файл, давайте
-заканчивать гуляние по дереву
+Если во время исследования файлы произойдет какая-то ошибка, т.е. не будет прав доступа к файлу, то метод
+visitFileFailed выведет сообщение о том, при исследовании какого файла возникла ошибка и "гуляние" по дереву файлов
+будет закончено, т.е.  return FileVisitResult.TERMINATE:
+
+        @Override
+        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+            System.out.println("Error while visiting file " + file.getFileName());
+            return FileVisitResult.TERMINATE;
+        }
+
+Код:
+
+public class FileTree {
+    public static void main(String[] args) {
+        Path path = Path.of("/Users/shevchenkostas77/Desktop/X");
+        try {
+            Files.walkFileTree(path, new MyFileVisitor());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class MyFileVisitor implements FileVisitor<Path> {
+    @Override
+    public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+        System.out.println("Enter to directory " + dir);
+        return FileVisitResult.CONTINUE;
+    }
+
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+        System.out.println("File name " + file.getFileName());
+        return FileVisitResult.CONTINUE;
+    }
+
+    @Override
+    public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+        System.out.println("Exit from directory " + dir);
+        return FileVisitResult.CONTINUE;
+    }
+
+    @Override
+    public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+        System.out.println("Error while visiting file " + file.getFileName());
+        return FileVisitResult.TERMINATE;
+    }
+}
+
+Запуск программы. Вывод на экран:
+Enter to directory /Users/shevchenkostas77/Desktop/X
+Enter to directory /Users/shevchenkostas77/Desktop/X/Y1
+Enter to directory /Users/shevchenkostas77/Desktop/X/Y1/O
+Exit from directory /Users/shevchenkostas77/Desktop/X/Y1/O
+File name test1.txt
+File name test2.txt
+File name test3.txt
+Exit from directory /Users/shevchenkostas77/Desktop/X/Y1
+Enter to directory /Users/shevchenkostas77/Desktop/X/Y2
+File name test4.txt
+Exit from directory /Users/shevchenkostas77/Desktop/X/Y2
+Enter to directory /Users/shevchenkostas77/Desktop/X/Z
+Exit from directory /Users/shevchenkostas77/Desktop/X/Z
+Exit from directory /Users/shevchenkostas77/Desktop/X
  */
 
 public class FileTree {
@@ -168,5 +238,4 @@ class MyFileVisitor implements FileVisitor<Path> {
         System.out.println("Error while visiting file " + file.getFileName());
         return FileVisitResult.TERMINATE;
     }
-
 }
