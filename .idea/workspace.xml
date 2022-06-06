@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/CopyFileTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/working_with_files_IO_and_NIO/CopyFileTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.DeleteFileTree">
+  <component name="RunManager" selected="Application.RegExPart1">
     <configuration name="CopyFileTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.CopyFileTree" />
       <module name="blackBeltJava" />
@@ -93,19 +92,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InterfacePathAndClassFilesPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.InterfacePathAndClassFilesPart1" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="working_with_files_IO_and_NIO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="InterfacePathAndClassFilesPart2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.InterfacePathAndClassFilesPart2" />
       <module name="blackBeltJava" />
@@ -119,13 +105,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegExPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="regex.RegExPart1" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regex.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RegExPart1" />
         <item itemvalue="Application.DeleteFileTree" />
         <item itemvalue="Application.CopyFileTree" />
         <item itemvalue="Application.FileTree" />
         <item itemvalue="Application.InterfacePathAndClassFilesPart2" />
-        <item itemvalue="Application.InterfacePathAndClassFilesPart1" />
       </list>
     </recent_temporary>
   </component>
