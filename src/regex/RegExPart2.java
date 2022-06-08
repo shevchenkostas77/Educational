@@ -230,18 +230,122 @@ Position: 21 c
 Position: 22 h
 
 Т.е. соответствие ТОЛЬКО любой букве, любой цифре, символу underscore "_". Никакие другие символы сюда не входят.
-*/
+
+4. \W - Соответствует одному символу, который НЕ буква, НЕ цифра и НЕ "_";
+
+Код:
+
+public class RegExPart2 {
+    public static void main(String[] args) {
+        String s = "abcd!?abce====abc +++5abcg6abch";
+
+        Pattern pattern = Pattern.compile("\\W"); // A-Za-z0-9_
+        Matcher matcher = pattern.matcher(s);
+
+        while(matcher.find()) {
+            System.out.println("Position: " + matcher.start() + " " + matcher.group());
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Position: 4 !
+Position: 5 ?
+Position: 10 =
+Position: 11 =
+Position: 12 =
+Position: 13 =
+Position: 17
+Position: 18 +
+Position: 19 +
+Position: 20 +
+
+Выражение "\W" обозначает соответстиве на любой из символов не из диапазонов "A-Za-z0-9_".
+
+Часто используемые символы в RegEx, обозначающие количество повторений:
+1. выражение? - Соответствует 0 или 1 повторению;
+2. выражение* - Соответствует 0 или большему количеству повторений;
+3. выражение+ - Соответствует 1 или большему количеству повторений;
+4. выражение{n} - Соответствует количеству повторений "n";
+5. выражение{m, n} - Соответствует количеству повторений от "m" до "n";
+6. выражение{n,} - Соответствует n или большему количеству повторений;
+
+
+3. выражение+ - Соответствует 1 или большему количеству повторений;
+
+Код:
 
 public class RegExPart2 {
     public static void main(String[] args) {
         String s = "abcd abce abc5abcg6abch";
-        Pattern pattern = Pattern.compile("\\w");
+
+        Pattern pattern = Pattern.compile("\\w+"); // A-Za-z0-9_
         Matcher matcher = pattern.matcher(s);
 
-        while (matcher.find()) {
+        while(matcher.find()) {
+            System.out.println("Position: " + matcher.start() + " " + matcher.group());
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Position: 0 abcd
+Position: 5 abce
+Position: 10 abc5abcg6abch
+
+Добавив в конце выражения "\w" (любого выражения) знак плюс "+", то поиск будет происходить на соответстиве по
+одному или более символам входящие в диапазон A-Z и в диапазон a-z и в диапазон 0-9 и underscore symbol.
+
+
+4. выражение{n} - Соответствует количеству повторений "n";
+
+Код:
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "poka abc Stas dom kinos";
+
+        Pattern pattern = Pattern.compile("\\w{4}"); // A-Za-z0-9_
+        Matcher matcher = pattern.matcher(s);
+
+        while(matcher.find()) {
+            System.out.println("Position: " + matcher.start() + " " + matcher.group());
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Position: 0 poka
+Position: 9 Stas
+Position: 18 kino
+
+Выражение "\\w{4}" говорит, что поиск на соответствие должен осуществляться в диапазнах "A-Za-z0-9_" и количество
+идущих друг за другом символов должно быть равно 4-м.
+*/
+
+public class Main {
+    public static void main(String[] args) {
+        String s = "poka abc Stas dom kino";
+
+        Pattern pattern = Pattern.compile("\\w{4}"); // A-Za-z0-9_
+        Matcher matcher = pattern.matcher(s);
+
+        while(matcher.find()) {
             System.out.println("Position: " + matcher.start() + " " + matcher.group());
         }
     }
 }
 
 
+
+//public class RegExPart2 {
+//    public static void main(String[] args) {
+//        String s = "abcd abce abc5abcg6abch";
+//        Pattern pattern = Pattern.compile("\\w");
+//        Matcher matcher = pattern.matcher(s);
+//
+//        while (matcher.find()) {
+//            System.out.println("Position: " + matcher.start() + " " + matcher.group());
+//        }
+//    }
+//}
