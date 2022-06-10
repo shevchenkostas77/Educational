@@ -323,7 +323,7 @@ Position: 18 kino
 идущих друг за другом символов должно быть равно 4-м.
 */
 
-public class Main {
+public class RegExPart2 {
     public static void main(String[] args) {
         String s = "poka abc Stas dom kino";
 
