@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/regex/RegExPart3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/regex/RegExPart3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/regex/RegExPart1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/regex/RegExPart1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +50,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last.edited.regexp" value="Sample Text" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.RegExPart3">
+  <component name="RunManager" selected="Application.StringClassMethodsMatchesAndSplit">
     <configuration name="CopyFileTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.CopyFileTree" />
       <module name="blackBeltJava" />
@@ -68,19 +70,6 @@
     </configuration>
     <configuration name="DeleteFileTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.DeleteFileTree" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="working_with_files_IO_and_NIO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FileTree" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="working_with_files_IO_and_NIO.FileTree" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
@@ -118,13 +107,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StringClassMethodsMatchesAndSplit" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="regex.StringClassMethodsMatchesAndSplit" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regex.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StringClassMethodsMatchesAndSplit" />
         <item itemvalue="Application.RegExPart3" />
         <item itemvalue="Application.RegExPart1" />
         <item itemvalue="Application.DeleteFileTree" />
         <item itemvalue="Application.CopyFileTree" />
-        <item itemvalue="Application.FileTree" />
       </list>
     </recent_temporary>
   </component>
