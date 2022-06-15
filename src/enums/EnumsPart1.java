@@ -123,40 +123,40 @@ public class EnumsPart1 {
     }
 }
 
-enum WeekDays {
+//enum WeekDays {
+//
+//    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY; // в конце лучше поставить точку с запятой
+//
+//}
 
-    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY; // в конце лучше поставить точку с запятой
-
-}
-
-class Today {
-
-    WeekDays weekDay; // тип переменной enum
-
-    public Today(WeekDays weekDay) {
-        this.weekDay = weekDay;
-    }
-
-    void daysInfo () {
-        /*
-        В методе используется перечисление элементов без типа enum-a, тут даже нельзя указывать это, что элементы относятся
-        к типу enum-a - WeekDays (case WeekDays.MONDAY:), компилятор не даст это сделать. Но, а как тогда Java понгимает к
-        чему относятся элементы перечисления?
-        Java видит, что в switch помешена переменная с названием weekDay, а тип этой переменной - WeekDays
-
-        */
-        switch(weekDay) {
-            case MONDAY:
-            case TUESDAY:
-            case WEDNESDAY:
-            case THURSDAY:
-            case FRIDAY:
-                System.out.println("Gotta go to work!");
-                break;
-            case SATURDAY:
-            case SUNDAY:
-                System.out.println("You can relax :) ");
-                break;
-        }
-    }
-}
+//class Today {
+//
+//    WeekDays weekDay; // тип переменной enum
+//
+//    public Today(WeekDays weekDay) {
+//        this.weekDay = weekDay;
+//    }
+//
+//    void daysInfo () {
+//        /*
+//        В методе используется перечисление элементов без типа enum-a, тут даже нельзя указывать это, что элементы относятся
+//        к типу enum-a - WeekDays (case WeekDays.MONDAY:), компилятор не даст это сделать. Но, а как тогда Java понгимает к
+//        чему относятся элементы перечисления?
+//        Java видит, что в switch помешена переменная с названием weekDay, а тип этой переменной - WeekDays
+//
+//        */
+//        switch(weekDay) {
+//            case MONDAY:
+//            case TUESDAY:
+//            case WEDNESDAY:
+//            case THURSDAY:
+//            case FRIDAY:
+//                System.out.println("Gotta go to work!");
+//                break;
+//            case SATURDAY:
+//            case SUNDAY:
+//                System.out.println("You can relax :) ");
+//                break;
+//        }
+//    }
+//}
