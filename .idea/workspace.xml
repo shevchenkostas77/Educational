@@ -51,7 +51,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.EnumsPart2">
+  <component name="RunManager" selected="Application.ScannerPart1">
     <configuration name="EnumsPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="enums.EnumsPart1" />
       <module name="blackBeltJava" />
@@ -71,19 +71,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="enums.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IPCheckExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="regex.IPCheckExample" />
-      <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="regex.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,13 +104,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ScannerPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="scanner.ScannerPart1" />
+      <module name="blackBeltJava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="scanner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ScannerPart1" />
         <item itemvalue="Application.EnumsPart2" />
         <item itemvalue="Application.EnumsPart1" />
         <item itemvalue="Application.PrintfAndFormatMethods" />
         <item itemvalue="Application.ReplaceAllAndGroupMethods" />
-        <item itemvalue="Application.IPCheckExample" />
       </list>
     </recent_temporary>
   </component>
