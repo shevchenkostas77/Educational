@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reflection_example/ReflectionPart1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reflection_example/ReflectionPart1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.ScannerPart2">
+  <component name="RunManager" selected="Application.ReflectionPart1">
     <configuration name="EnumsPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="enums.EnumsPart1" />
       <module name="blackBeltJava" />
@@ -80,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrintfAndFormatMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="regex.PrintfAndFormatMethods" />
+    <configuration name="ReflectionPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="reflection_example.ReflectionPart1" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regex.*" />
+          <option name="PATTERN" value="reflection_example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,11 +122,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ReflectionPart1" />
         <item itemvalue="Application.ScannerPart2" />
         <item itemvalue="Application.ScannerPart1" />
         <item itemvalue="Application.EnumsPart2" />
         <item itemvalue="Application.EnumsPart1" />
-        <item itemvalue="Application.PrintfAndFormatMethods" />
       </list>
     </recent_temporary>
   </component>

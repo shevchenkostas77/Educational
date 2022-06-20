@@ -1,7 +1,6 @@
 package reflection_example;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.reflect.Constructor;
 import java.util.Arrays;
 
 /*
@@ -238,16 +237,17 @@ public class ReflectionPart1 {
 Return type of method increaseSlary: void
 Parameter types of method increaseSlary: []
 
+Теперь поработаем с методом, у которого есть параметры и этот метод. К примеру, c setSalary, у него параметр типа double.
 
-*/
+Код:
 
 public class ReflectionPart1 {
     public static void main(String[] args) {
         try {
             Class employeeClass = Class.forName("Employee");
-            Method someMethod = employeeClass.getMethod("increaseSalary");
-            System.out.println("Return type of method increaseSlary: " + someMethod.getReturnType());
-            System.out.println("Parameter types of method increaseSlary: " + Arrays.toString(someMethod.getParameterTypes()));
+            Method someMethod = employeeClass.getMethod("setSalary");
+            System.out.println("Return type of method setSalary: " + someMethod.getReturnType());
+            System.out.println("Parameter types of method setSalary: " + Arrays.toString(someMethod.getParameterTypes()));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -255,10 +255,314 @@ public class ReflectionPart1 {
         }
     }
 }
-class Hello extends Object {
 
+
+class Employee {
+    public int id;
+    public String name;
+    public String department;
+    private double salary;
+
+    public Employee() {
+    }
+
+    public Employee(int id, String name, String department) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+    }
+
+    public Employee(int id, String name, String department, double salary) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    private void changeDepartment(String newDepartment) {
+        department = newDepartment;
+        System.out.println("New department " + this + " employee: " + department);
+    }
+
+    public void increaseSalary() {
+        salary *= 2;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee {" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", department = '" + department + '\'' +
+                ", salary = " + salary +
+                '}';
+    }
 }
 
+Запуск программы. Вывод на экран:
+java.lang.NoSuchMethodException: Employee.setSalary()
+        at java.base/java.lang.Class.getMethod(Class.java:2109)
+        at Main.main(Main.java:18)
+
+Выбросилось исключение. Но, что же не так?
+Метод getMethod принимает в свои папаметры не только имя метода, информацию о котором мы ходим узнать, но еще и типы
+параметров интересующего нас метода. Второй параметр метода getMethod (parametrTypes) является varargs, этот
+параметр можно не указывать, НО только в том случае, если метод без параметров. Ну, и если бы метод setSalary был
+перегружен, т.е. было бы в классе два и более метода с одним и тем же названием и разным набором параметров, то как бы
+Java поняла, о каком методе нам нужно выдать информацию. Поэтому, если необходимо получить информацию о методе с
+параметрами, то в методе getMethod первым параметром указывается имя метода, вторым и последующими параметрами
+указываются типы параметров интересующего нас метода.
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Method someMethod = employeeClass.getMethod("setSalary", double.class);
+            System.out.println("Return type of method setSalary: " + someMethod.getReturnType());
+            System.out.println("Parameter types of method setSalary: " + Arrays.toString(someMethod.getParameterTypes()));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Return type of method setSalary: void
+Parameter types of method setSalary: [double]
+
+У примитивных типов данных тоже есть понятие класс - double.class.
+
+Теперь выведем информацию о всех методах класса Employee.
+В этом нам поможет метод getMethods. Этот метод возвращает массив типа Method.
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Method[] methods = employeeClass.getMethods();
+
+            for(Method method : methods) {
+                System.out.println("Name of method: " + method.getName() +
+                        ", return type: " + method.getReturnType() +
+                        ", parametr types: " + Arrays.toString(method.getParameterTypes()));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Name of method: toString, return type: class java.lang.String, parametr types: []
+Name of method: getSalary, return type: double, parametr types: []
+Name of method: setSalary, return type: void, parametr types: [double]
+Name of method: increaseSalary, return type: void, parametr types: []
+Name of method: wait, return type: void, parametr types: [long]
+Name of method: wait, return type: void, parametr types: [long, int]
+Name of method: wait, return type: void, parametr types: []
+Name of method: equals, return type: boolean, parametr types: [class java.lang.Object]
+Name of method: hashCode, return type: int, parametr types: []
+Name of method: getClass, return type: class java.lang.Class, parametr types: []
+Name of method: notify, return type: void, parametr types: []
+Name of method: notifyAll, return type: void, parametr types: []
+
+Оказывается вот сколько методов в классе Employee. Метод toString, getSalary, setSalary, increaseSalary,
+wait (метод wait перегружен, имена методов одинаковы, а списки парамтров разные),
+equals, hashCode, getClass, notify, notifyAll. Т.е. метода getMethods вернет все методы из класса Employee даже те, которые
+были унаследованы от родителей. НО метод getMethods не вывел информацию о методе с access modifier private - changeDepartment.
+Как и в примере с полями, можно получить доступ к методу, для этого есть getDeclaredMethods.
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Method[] allMethods = employeeClass.getDeclaredMethods();
+
+            for(Method method : allMethods) {
+                System.out.println("Name of method: " + method.getName() +
+                        ", return type: " + method.getReturnType() +
+                        ", parametr types: " + Arrays.toString(method.getParameterTypes()));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Name of method: getSalary, return type: double, parametr types: []
+Name of method: setSalary, return type: void, parametr types: [double]
+Name of method: changeDepartment, return type: void, parametr types: [class java.lang.String]
+Name of method: increaseSalary, return type: void, parametr types: []
+Name of method: toString, return type: class java.lang.String, parametr types: []
+
+Метод getDeclaredMethods вернет только те методы, которые прописаны в классе Employee, не возвращает унаследованные
+методы, но естественно, если метод был переопределен, как метод toString в классе, то он будет в этом списке. Вот
+таким способом можно получить доступ даже к методам с access modifier private.
+
+Как получить только те методы из класса, у которых access modifier public?
+Этого можно достичь при помощи метода getDeclaredMethos и, к примеру, в for-each loop-e выполнить проверку.
+Проверка будет выполняться при помощи статического метода isPublic класса Modifier и метода getModifiers.
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Method[] allMethods = employeeClass.getDeclaredMethods();
+
+            for(Method method : allMethods) {
+                if(Modifier.isPublic(method.getModifiers())) {
+                    System.out.println("Name of method: " + method.getName() +
+                            ", return type: " + method.getReturnType() +
+                            ", parametr types: " + Arrays.toString(method.getParameterTypes()));
+                }
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Name of method: getSalary, return type: double, parametr types: []
+Name of method: setSalary, return type: void, parametr types: [double]
+Name of method: increaseSalary, return type: void, parametr types: []
+Name of method: toString, return type: class java.lang.String, parametr types: []
+
+Таких классов как, Field, Modifier, Method, Constructor и тд., их очень много.
+
+Теперь о конструкторах. Как можно получить информацию о них?
+Для начала "поговорим" о получении какого-то конкретного конструктора, для этого будем использовать метод getConstructor.
+Когда, в примерах выше, был использован метод getMethod, то в параметрах необходимо было указать имя интересующего нас метода,
+а вот когда происхожит работа с конструктором, то понятно какое имя конструктора будет - точно такое же как и название класса,
+поэтому Java достаточно умна, чтобы понять, что название конструктора совпадает с названием класса. Метод getConstructor
+возвращает объект типа Constructor.
+
+        Class nameVariable = Class.forName("package.nameClass");
+        Constructor constructor = nameVariable.getConstructor();
+
+Так можно получить информацию о конструкторе, у которого отсутствуют параметры. Метод getConstructor может иметь параметры
+и эти параметры varargs. Если параметры не указывать в методе getConstructor, то это означает, что хотим получить информацию о
+конструкторе, у которого отсутствуют параметры.
+
+А какую информацию можно узнать о конструкторе?
+1. Сколько параметров имеет определенный конструктор - getParameterCount;
+2. Типы параметров конструтора - getParameterTypes (возвращает массив);
+3. Имя конструкртора - getName();
+4. Сколько есть конструкторов у класса;
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Constructor constructor = employeeClass.getConstructor();
+
+            System.out.println("Constructor has: " + constructor.getParameterCount() +
+                    ", parameters, their types are: " + Arrays.toString(constructor.getParameterTypes()));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Constructor has: 0, parameters, their types are: []
+
+Теперь "поговорим" о конструкторе с параметрами. В классе Employee есть конструктор, которыей принимает 3-и параметра
+(int и 2-а String-a). В параметрах метода getConstructor необходимо прописать с какими типами хотим получить конструктор.
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Constructor constructor = employeeClass.getConstructor(int.class, String.class, String.class);
+
+            System.out.println("Constructor has: " + constructor.getParameterCount() +
+                    ", parameters, their types are: " + Arrays.toString(constructor.getParameterTypes()));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Constructor has: 3, parameters, their types are: [int, class java.lang.String, class java.lang.String]
+
+Теперь попробуем получить информацию о всех констркторах. И в этом нам поможет метод getConstructors.
+Метод getConstructors возвращает массив типа Constructor.
+
+Код:
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("Employee");
+            Constructor[] allConstructors = employeeClass.getConstructors();
+
+            for(Constructor constructor : allConstructors) {
+                System.out.println("Constructor: " + constructor.getName() +
+                        " has: " + constructor.getParameterCount() +
+                        ", parameters, their types are: " + Arrays.toString(constructor.getParameterTypes()));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Запуск программы. Вывод на экран:
+Constructor: Employee has: 0, parameters, their types are: []
+Constructor: Employee has: 4, parameters, their types are: [int, class java.lang.String, class java.lang.String, double]
+Constructor: Employee has: 3, parameters, their types are: [int, class java.lang.String, class java.lang.String]
+
+Естестевенно, конструкторы называются одинаково, т.к. это конструкторы одного и того же класса.
+
+Есть еще метод getDeclaredConstructors. Его отличие от метода getConstructors в том, что он возвращает все конструкторы, в том числе
+с access modifier private.
+*/
+
+public class ReflectionPart1 {
+    public static void main(String[] args) {
+        try {
+            Class employeeClass = Class.forName("reflection_example.Employee");
+            Constructor[] allConstructors = employeeClass.getConstructors();
+
+            for (Constructor constructor : allConstructors) {
+                System.out.println("Constructor: " + constructor.getName() +
+                        " has: " + constructor.getParameterCount() +
+                        ", parameters, their types are: " + Arrays.toString(constructor.getParameterTypes()));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 class Employee {
     public int id;
