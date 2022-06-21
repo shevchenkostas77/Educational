@@ -70,7 +70,7 @@ class Employee {
 
 Теперь поработаем с самой рефлексией.
 Как можно создать объект класса, который называется Class?
-Рассмотрим три варианта создания этого объекта. Самый часто используемый для создания объекта класса Class:
+Рассмотрим три варианта создания этого объекта. Самый часто используемый вариант для создания объекта класса Class:
 
         Class nameVariable = Class.forName("package.nameClass");
 
@@ -113,24 +113,23 @@ public class ReflectionPart1 {
 }
 
 Какую же информацию возможно получить из объекта класса Class (т.е. из employeeClass)?
-Как уже выше было написано, что объект employeeClass является нашим классом Employee. Интересно звучит это выражение, но
-к нему нужно просто привыкнуть.
+Как уже выше было написано, что объект employeeClass является нашим классом Employee. Интересно звучит это выражение,
+но к нему нужно просто привыкнуть.
 Можно получить какое-то поле класса Employee с помощью объекта employeeClass. Как можно получить поле?
 При помощи метода getField, с англ. "получить поле":
 
         employeeClass.getField("id");
 
 В параметрах в двойных кавычках указывается необходимое поле. Метод getField выбрасывает исключение -
-NoSuchFieldException. Исключение будет выброшено, когда не будет найдено искомое поле, например, поле "id2", такого поля нет в классе Employee и
-будет выброшено исключение. Метод getField возвращает объект типа Field. Есть такой класс с названием Field (нужен импорт -
-import java.lang.reflect.Field;).
+NoSuchFieldException. Исключение будет выброшено, когда не будет найдено искомое поле, например, поле "id2", такого
+поля нет в классе Employee и будет выброшено исключение. Метод getField возвращает объект типа Field. Есть такой класс
+с названием Field (нужен импорт - import java.lang.reflect.Field;).
 
         Field someField = employeeClass.getField("id");
 
-Объекту класса Field (поле) передаем Field (поле) класса Employee, которое носит имя "id". Какую информацию об этом поле
-возможно узнать?
+Объекту класса Field (поле) передаем Field (поле) класса Employee, которое носит имя "id". Какую информацию об этом
+поле возможно узнать?
 Например, можно узнать тип этого поля:
-
 
 public class ReflectionPart1 {
     public static void main(String[] args) {
@@ -177,10 +176,11 @@ Type of "id": int
 Type of "name": class java.lang.String
 Type of "department": class java.lang.String
 
-Тут нет поля access modifier которого private, НО с помощью рефлексии можно получить даже к полям с access modifier private.
+Но тут же нет поля access modifier private! С помощью рефлексии можно получить доступ даже к полям с access modifier
+private.
 И как же получить абсолютно все поля, даже с access modifier private?
-На объекте класса Class вызвать метод getDeclaredFields и тогда можно увидеть не только после с access modifier public, но и
-с private. Метода getDeclaredFields возвращает массив типа Field.
+На объекте класса Class вызвать метод getDeclaredFields и тогда можно увидеть не только после с access modifier public,
+но и с private. Метода getDeclaredFields возвращает массив типа Field.
 
 Код:
 
@@ -206,16 +206,17 @@ Type of "name": class java.lang.String
 Type of "department": class java.lang.String
 Type of "salary": double
 
-Несмотря на то, что поле salary в классе Employee приватное доступ возможно получить.
+Несмотря на то, что поле salary в классе Employee приватное, доступ все равно возможно получить.
 
 Теперь перейдем к методам.
 Как получить информацию о конкретном методе класса и какую информацию можно получить?
 Создадим еще один метод в классе Employee с именем increaseSalary.
-При помощи объекта класса Class вызывается метод getMethod и в параметр этого метода передается имя метода, о котором необходимо
-узнать информацию. Метод getMethod выбрасывает исключение - NoSuchMethodException. Метод getMethod возвращает объект типа Method,
-есть такой класс (нужен импорт import java.lang.reflect.Method;). О методе можно узнать: тип возвращаемого значения метода
-(getReturnType), типы параметров, которые принимает интересующий нас метод (getParameterTypes). Метод getParameterTypes
-возвращает массив типа Class поэтому, чтобы вывести этот массив на экран в читабельном человеку виде метод toString класса Arrays.
+При помощи объекта класса Class вызывается метод getMethod и в параметр этого метода передается имя метода, о котором
+необходимо узнать информацию. Метод getMethod выбрасывает исключение - NoSuchMethodException. Метод getMethod
+возвращает объект типа Method, есть такой класс (нужен импорт import java.lang.reflect.Method;). О методе можно узнать:
+тип возвращаемого значения метода (getReturnType), типы параметров, которые принимает интересующий нас метод
+(getParameterTypes). Метод getParameterTypes возвращает массив типа Class поэтому, чтобы вывести этот массив на экран в
+читабельном для человека виде необходимо использовать метод toString класса Arrays.
 
 Код:
 
@@ -225,7 +226,8 @@ public class ReflectionPart1 {
             Class employeeClass = Class.forName("Employee");
             Method someMethod = employeeClass.getMethod("increaseSalary");
             System.out.println("Return type of method increaseSlary: " + someMethod.getReturnType());
-            System.out.println("Parameter types of method increaseSlary: " + Arrays.toString(someMethod.getParameterTypes()));
+            System.out.println("Parameter types of method increaseSlary: " +
+                    Arrays.toString(someMethod.getParameterTypes()));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -233,11 +235,12 @@ public class ReflectionPart1 {
         }
     }
 }
+
 Запуск программы. Вывод на экран:
 Return type of method increaseSlary: void
 Parameter types of method increaseSlary: []
 
-Теперь поработаем с методом, у которого есть параметры и этот метод. К примеру, c setSalary, у него параметр типа double.
+Теперь поработаем с методом, у которого есть параметры. К примеру, c setSalary, у него параметр типа double.
 
 Код:
 
@@ -247,7 +250,8 @@ public class ReflectionPart1 {
             Class employeeClass = Class.forName("Employee");
             Method someMethod = employeeClass.getMethod("setSalary");
             System.out.println("Return type of method setSalary: " + someMethod.getReturnType());
-            System.out.println("Parameter types of method setSalary: " + Arrays.toString(someMethod.getParameterTypes()));
+            System.out.println("Parameter types of method setSalary: " +
+                    Arrays.toString(someMethod.getParameterTypes()));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {
@@ -255,7 +259,6 @@ public class ReflectionPart1 {
         }
     }
 }
-
 
 class Employee {
     public int id;
@@ -313,7 +316,7 @@ java.lang.NoSuchMethodException: Employee.setSalary()
         at Main.main(Main.java:18)
 
 Выбросилось исключение. Но, что же не так?
-Метод getMethod принимает в свои папаметры не только имя метода, информацию о котором мы ходим узнать, но еще и типы
+Метод getMethod принимает в свои параметры не только имя метода, информацию о котором мы ходим узнать, но еще и типы
 параметров интересующего нас метода. Второй параметр метода getMethod (parametrTypes) является varargs, этот
 параметр можно не указывать, НО только в том случае, если метод без параметров. Ну, и если бы метод setSalary был
 перегружен, т.е. было бы в классе два и более метода с одним и тем же названием и разным набором параметров, то как бы
@@ -380,11 +383,11 @@ Name of method: getClass, return type: class java.lang.Class, parametr types: []
 Name of method: notify, return type: void, parametr types: []
 Name of method: notifyAll, return type: void, parametr types: []
 
-Оказывается вот сколько методов в классе Employee. Метод toString, getSalary, setSalary, increaseSalary,
-wait (метод wait перегружен, имена методов одинаковы, а списки парамтров разные),
-equals, hashCode, getClass, notify, notifyAll. Т.е. метода getMethods вернет все методы из класса Employee даже те, которые
-были унаследованы от родителей. НО метод getMethods не вывел информацию о методе с access modifier private - changeDepartment.
-Как и в примере с полями, можно получить доступ к методу, для этого есть getDeclaredMethods.
+Оказывается вот сколько методов в классе Employee. Метод toString, getSalary, setSalary, increaseSalary, wait (метод
+wait перегружен, имена методов одинаковы, а списки параметров разные), equals, hashCode, getClass, notify, notifyAll.
+Т.е. метода getMethods вернет все методы из класса Employee даже те, которые были унаследованы от родителей. НО метод
+getMethods не вывел информацию о методе с access modifier private - changeDepartment. Как и в примере с полями, все же
+можно получить доступ к методу, для этого есть getDeclaredMethods.
 
 Код:
 
@@ -450,22 +453,22 @@ Name of method: toString, return type: class java.lang.String, parametr types: [
 Таких классов как, Field, Modifier, Method, Constructor и тд., их очень много.
 
 Теперь о конструкторах. Как можно получить информацию о них?
-Для начала "поговорим" о получении какого-то конкретного конструктора, для этого будем использовать метод getConstructor.
-Когда, в примерах выше, был использован метод getMethod, то в параметрах необходимо было указать имя интересующего нас метода,
-а вот когда происхожит работа с конструктором, то понятно какое имя конструктора будет - точно такое же как и название класса,
-поэтому Java достаточно умна, чтобы понять, что название конструктора совпадает с названием класса. Метод getConstructor
-возвращает объект типа Constructor.
+Для начала "поговорим" о получении какого-то конкретного конструктора, для этого будем использовать метод
+getConstructor. Когда, в примерах выше, был использован метод getMethod, то в параметрах необходимо было указать имя
+интересующего нас метода, а вот когда происходит работа с конструктором, то понятно какое имя конструктора будет -
+точно такое же как и название класса, поэтому Java достаточно умна, чтобы понять, что название конструктора совпадает с
+названием класса. Метод getConstructor возвращает объект типа Constructor.
 
         Class nameVariable = Class.forName("package.nameClass");
         Constructor constructor = nameVariable.getConstructor();
 
-Так можно получить информацию о конструкторе, у которого отсутствуют параметры. Метод getConstructor может иметь параметры
-и эти параметры varargs. Если параметры не указывать в методе getConstructor, то это означает, что хотим получить информацию о
-конструкторе, у которого отсутствуют параметры.
+Так можно получить информацию о конструкторе, у которого отсутствуют параметры. Метод getConstructor может иметь
+параметры и эти параметры varargs. Если параметры не указывать в методе getConstructor, то это означает, что хотим
+получить информацию о конструкторе, у которого отсутствуют параметры.
 
 А какую информацию можно узнать о конструкторе?
 1. Сколько параметров имеет определенный конструктор - getParameterCount;
-2. Типы параметров конструтора - getParameterTypes (возвращает массив);
+2. Типы параметров конструктора - getParameterTypes (возвращает массив);
 3. Имя конструкртора - getName();
 4. Сколько есть конструкторов у класса;
 
@@ -491,7 +494,8 @@ public class ReflectionPart1 {
 Constructor has: 0, parameters, their types are: []
 
 Теперь "поговорим" о конструкторе с параметрами. В классе Employee есть конструктор, которыей принимает 3-и параметра
-(int и 2-а String-a). В параметрах метода getConstructor необходимо прописать с какими типами хотим получить конструктор.
+(int и 2-а String-a). В параметрах метода getConstructor необходимо прописать с какими типами хотим получить
+конструктор.
 
 Код:
 
@@ -514,8 +518,8 @@ public class ReflectionPart1 {
 Запуск программы. Вывод на экран:
 Constructor has: 3, parameters, their types are: [int, class java.lang.String, class java.lang.String]
 
-Теперь попробуем получить информацию о всех констркторах. И в этом нам поможет метод getConstructors.
-Метод getConstructors возвращает массив типа Constructor.
+Теперь попробуем получить информацию о всех констркторах. И в этом нам поможет метод getConstructors. Метод
+getConstructors возвращает массив типа Constructor.
 
 Код:
 
@@ -543,8 +547,8 @@ Constructor: Employee has: 3, parameters, their types are: [int, class java.lang
 
 Естестевенно, конструкторы называются одинаково, т.к. это конструкторы одного и того же класса.
 
-Есть еще метод getDeclaredConstructors. Его отличие от метода getConstructors в том, что он возвращает все конструкторы, в том числе
-с access modifier private.
+Есть еще метод getDeclaredConstructors. Его отличие от метода getConstructors в том, что он возвращает все конструкторы,
+в том числе с access modifier private.
 */
 
 public class ReflectionPart1 {
