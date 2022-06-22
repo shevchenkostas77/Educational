@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/blackBeltJava/reflection_example/ReflectionPart2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reflection_example/ReflectionPart2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/reflection_example/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/reflection_example/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/reflection_example/ReflectionPart1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/reflection_example/ReflectionPart1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reflection_example/ReflectionPart1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reflection_example/ReflectionPart1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
