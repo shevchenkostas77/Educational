@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/META-INF/blackBeltJava.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/streamMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/annotation_examples/AnnotationExamples.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/annotation_examples/AnnotationExamples.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/annotation_examples/Child.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/annotation_examples/Parent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/equals_method/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/equals_method/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/blackBeltJava/equals_method/EqualsMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/blackBeltJava/equals_method/EqualsMethod.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +58,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.AnnotationExamples">
+  <component name="RunManager" selected="Application.StreamMap (1)">
     <configuration name="AnnotationExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="annotation_examples.AnnotationExamples" />
       <module name="blackBeltJava" />
@@ -95,12 +98,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScannerPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="scanner.ScannerPart1" />
+    <configuration name="StreamMap (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="stream.StreamMap" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="scanner.*" />
+          <option name="PATTERN" value="stream.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,26 +111,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ScannerPart2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="scanner.ScannerPart2" />
+    <configuration name="StreamMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StreamMap" />
       <module name="blackBeltJava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="scanner.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StreamMap (1)" />
+        <item itemvalue="Application.StreamMap" />
         <item itemvalue="Application.AnnotationExamples" />
         <item itemvalue="Application.ReflectionPart2" />
         <item itemvalue="Application.ReflectionPart1" />
-        <item itemvalue="Application.ScannerPart2" />
-        <item itemvalue="Application.ScannerPart1" />
       </list>
     </recent_temporary>
   </component>
