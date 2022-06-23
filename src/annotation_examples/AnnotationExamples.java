@@ -1,9 +1,6 @@
 package annotation_examples;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /*
 Аннотации - это специальные комментарии / метки / метаданные, которые нужны для передачи определенной информации.
@@ -255,43 +252,134 @@ Retention нужен импорт - import java.lang.annotation.Retention;
 
         }
 
+Теперь создадим пример, в котором будет использоваться аннотация с RetentionPolicy.RUNTIME и будем читать информацию из
+этой аннотации с помощью reflection.
+Создадим аннотацию и назовем ее SmartPhone:
 
+        @interface SmartPhone {
+        }
+
+К каким элементам класса она может быть применима? При помощи вспомогательной аннотации "@Target" зададим, к примеру,
+что данная аннотация может быть применима для всего класса, интерфейса и enum класса:
+
+        @Target(ElementType.TYPE)
+        @interface SmartPhone {
+        }
+
+При помощи вспомогательной аннотации "@Retention" зададим, что "наша" аннотация будет видна во время выполнения
+программы, мы ведь в нашем примере будем читать информацию из этой аннотации с помощью рефлексии, а иначе аннотация
+просто "не доживет" до выполнения программы.
+Теперь внутри аннотации создадим элементы аннотации. Недаром при создании аннотации после знака собачки и перед именем
+аннотации указывается слово interface, т.к. элементы аннотации выглядят, как абстрактные методы. Хочу создать для
+аннотации SmartPhone элемент операционной системы, т.е. на какой операционной системе работает смартфон:
+
+        @Target(ElementType.TYPE)
+        @Retention(RetentionPolicy.RUNTIME)
+        @interface SmartPhone {
+            String OS ();
+        }
+
+Довольно таки странный синтаксис создания элементов аннотации, но какой есть. Хочу, что бы было поле "год создания
+компании":
+
+        @Target(ElementType.TYPE)
+        @Retention(RetentionPolicy.RUNTIME)
+        @interface SmartPhone {
+            String OS();
+
+            int yearOfCompanyCreation();
+        }
+
+Вот мы и создали "нашу" аннотацию, которая применима к классу.
+Теперь создадим пару классов, которые будут аннотированы аннотацией SmartPhone.
+
+        class Xiaomi {
+            String model;
+            double price;
+        }
+
+        class Iphone {
+            String model;
+            double price;
+        }
+
+Если необходимо аннотировать класс аннотацией SmartPhone, то это аннотация пишется над необходимым классом и указывается
+обязательно значения аннотации SmartPhone (OS и yearOfCompanyCreation):
+
+        @SmartPhone(OS = "Android", yearOfCompanyCreation = 2010)
+        class Xiaomi {
+            String model;
+            double price;
+        }
+
+Вот так создали классы Xiaomi и Iphone, которые аннотированы аннотацией SmartPhone.
+В самой аннотации можно прописывать дефолтные значения для элементов. Например, для элемента OS хочу указать дефолтное
+значение - Android:
+
+        @Target(ElementType.TYPE)
+        @Retention(RetentionPolicy.RUNTIME)
+        @interface SmartPhone {
+            String OS() default "Android";
+
+            int yearOfCompanyCreation();
+        }
+
+Когда указывается дефолтное значение, то это означает, что при использовании аннотации можно не задавать значение этим
+элементам:
+
+        @Target(ElementType.TYPE)
+        @Retention(RetentionPolicy.RUNTIME)
+        @interface SmartPhone {
+            String OS() default "Android";
+
+            int yearOfCompanyCreation() default 2010;
+        }
+
+        @SmartPhone
+        class Xiaomi {
+            String model;
+            double price;
+        }
+
+        @SmartPhone(OS = "IOS", yearOfCompanyCreation = 1976)
+        class Iphone {
+            String model;
+            double price;
+        }
+
+Теперь для класса Xiaomi можно не задавать значения потому, что есть дефолтные значение и они, в даном случае,
+устраивают. Если указать значения, то они перезапишут дефолтные.
+
+Теперь давайте прочитаем информацию из аннотации для Xiaomi и Iphone с помощью рефлексии.
  */
 
 
 public class AnnotationExamples {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class xiaomiClass = Class.forName("annotation_examples.Xiaomi");
+        Annotation annotation1 = xiaomiClass.getAnnotation(SmartPhone.class);
+        SmartPhone sm1 = (SmartPhone) annotation1;
+        System.out.println();
 
     }
 }
 
-@MyAnnotation
-class Employee {
-
-    String name;
-    double salary;
-
-    public Employee(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
-    }
-
-    @MyAnnotation
-    public void increaseSalary() {
-        salary *= 2;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", salary=" + salary +
-                '}';
-    }
-}
-
-@Target({ElementType.TYPE, ElementType.METHOD})
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@interface MyAnnotation {
+@interface SmartPhone {
+    String OS() default "Android";
 
+    int yearOfCompanyCreation() default 2010;
+}
+
+@SmartPhone
+class Xiaomi {
+    String model;
+    double price;
+}
+
+@SmartPhone(OS = "IOS", yearOfCompanyCreation = 1976)
+class Iphone {
+    String model;
+    double price;
 }
