@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eed9cf04-b661-41d5-9d6c-11f70b4f753e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comparation/MyComparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparation/MyComparable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.AnnotationExamples">
+  <component name="RunManager" selected="Application.MyComparable">
     <configuration name="AnnotationExamples" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="annotation_examples.AnnotationExamples" />
       <module name="blackBeltJava" />
@@ -67,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReflectionPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="reflection_example.ReflectionPart1" />
+    <configuration name="MyComparable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="comparation.MyComparable" />
       <module name="blackBeltJava" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="reflection_example.*" />
+          <option name="PATTERN" value="comparation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -115,11 +116,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MyComparable" />
         <item itemvalue="Application.AnnotationExamples" />
         <item itemvalue="Application.StreamMap (1)" />
         <item itemvalue="Application.StreamMap" />
         <item itemvalue="Application.ReflectionPart2" />
-        <item itemvalue="Application.ReflectionPart1" />
       </list>
     </recent_temporary>
   </component>
